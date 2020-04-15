@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Zork_Plain_Text"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Zork_Plain_Text">
+				<Option output="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Zork_Plain_Text.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 Zork_Plain_Text"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Zork_Plain_Text/fast">
+				<Option output="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Zork_Plain_Text.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 Zork_Plain_Text/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/attacklistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/character.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/characterdeathlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/damagelistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/defeatlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/enemy.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/enterroomlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/eventlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/eventmanager.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/exitlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/game.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/golistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/infolistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/inputlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/item.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/maplistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/restartlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/room.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/takelistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/teleportlistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/victorylistener.h">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/attacklistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/character.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/characterdeathlistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/damagelistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/defeatlistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/enemy.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/enterroomlistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/eventmanager.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/exitlistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/game.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/golistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/infolistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/inputlistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/item.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/main.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/maplistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/restartlistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/room.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/takelistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/teleportlistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/victorylistener.cpp">
+			<Option target="Zork_Plain_Text"/>
+		</Unit>
+		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
