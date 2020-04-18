@@ -19,7 +19,6 @@
 #include "defeatlistener.h"
 #include "takelistener.h"
 #include "damagelistener.h"
-#include "enemy.h"
 #include "attacklistener.h"
 
 Game::Game() :
@@ -46,7 +45,7 @@ Game::Game() :
 
 
     rooms.push_back(new Room("A")); // 0
-    rooms.push_back(new Room("B", false)); // 1
+    rooms.push_back(new Room("B", true)); // 1
     rooms.push_back(new Room("C", false)); // 2
     rooms.push_back(new Room("D")); // 3
     rooms.push_back(new Room("E", false)); // 4
@@ -61,9 +60,9 @@ Game::Game() :
     rooms[0]->addItem(new Item("key", "Oh a key. This might be useful on my adventure"));
 
 
-    enemies.push_back(new Enemy("dragon", 50, 80, "A fire breathing dragon from the depths of Hellheim!", false));  //0
-    enemies.push_back(new Enemy("goblin", 20, 50, "An ugly creature appears from the shadows", true));  //1
-    enemies.push_back(new Enemy("zombie", 20, 50, "A human both dead inside and out", false));   //2
+    enemies.push_back(new Character("dragon", 50, 80, true, false));  //0
+    enemies.push_back(new Character("goblin", 20, 50, true, true));  //1
+    enemies.push_back(new Character("zombie", 20, 50, true, false));   //2
 
 
 
@@ -108,8 +107,8 @@ void Game::reset(bool show_update) {
     player.setHealth(100);
     player.setStamina(100);
 
-    enemies[0]->setCurrentRoom(rooms[1]);
-    enemies[1]->setCurrentRoom(rooms[0]);
+    enemies[0]->setCurrentRoom(rooms[0]);
+    enemies[1]->setCurrentRoom(rooms[1]);
     enemies[2]->setCurrentRoom(rooms[2]);
 
     cout << "Welcome to Zork!" << endl;
@@ -134,7 +133,7 @@ void Game::map() {
         for (int j = 0; j < enemies.size(); j++) {
             if (enemies[j]->getCurrentRoom() == rooms[i] &&
                 rooms[i]->getName() != ("!" + rooms[i]->getName() + "!")) {
-                enemies[j]->getCurrentRoom()->setName("!" + enemies[j]->getCurrentRoom()->getName() + "!");     // add !! to enemies cuu
+                enemies[j]->getCurrentRoom()->setName("!" + enemies[j]->getCurrentRoom()->getName() + "!");     // add !! to enemies current room
             }
         }
     }
@@ -236,7 +235,6 @@ void Game::take(string itemName) {
         cout << "You have taken " + itemName << endl;
         cout << player.getCurrentRoom()->itemDescription(itemName) << endl;
         player.getCurrentRoom()->removeItem(itemName);
-        EventManager::getInstance().trigger("takeItem", nullptr);
         EventManager::getInstance().trigger("damage", &itemName);  //triggers damage event
     }
 }
@@ -256,6 +254,14 @@ bool Game::is_over() {
 
 Character &Game::getPlayer() {
     return player;
+}
+
+void Game::removeEnemy(string enemyName) {
+    for(int i = 0; i < enemies.size(); i++) {
+        if(enemyName == enemies[i]->getName()) {
+            enemies.erase(enemies.begin()+i);
+        }
+    }
 }
 
 void Game::update_screen() {

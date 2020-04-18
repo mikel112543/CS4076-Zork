@@ -1,6 +1,5 @@
 #include "room.h"
 #include "item.h"
-#include "enemy.h"
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -64,25 +63,9 @@ void Room::removeItem(string itemName) {
     }
 }
 
-void Room::addEnemy(Enemy* newEnemy) {
-    enemiesInRoom.push_back(*newEnemy);
-}
-
-/*void Room::removeEnemy(string enemyName) {
-    auto itr = std::find(enemiesInRoom.begin(), enemiesInRoom.end(), enemyName);
-    if(itr != enemiesInRoom.end()) {
-        enemiesInRoom.erase(itr);
-    }
-}
- */
-
 Room *Room::getExit(string direction)
 {
     return exits[direction];
-}
-
-int Room::numberOfItems() {
-    return itemsInRoom.size();
 }
 
 string Room::itemDescription(string itemName) {
@@ -121,17 +104,7 @@ string Room::displayItem() {
     return tempString;
 }
 
-string Room::displayEnemy() {
-    string tempString = "Enemies in room: ";
-    if(enemiesInRoom.empty()) {
-        tempString = "There are no enemies in this room. Phew! ";
-    }else{
-        for(auto & i : enemiesInRoom) {
-            tempString += i.getName() + ", ";
-        }
-    }
-    return tempString;
-}
+
 
 
 

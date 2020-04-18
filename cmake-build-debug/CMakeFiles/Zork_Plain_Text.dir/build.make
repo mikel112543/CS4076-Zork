@@ -322,24 +322,10 @@ CMakeFiles/Zork_Plain_Text.dir/Source_Files/damagelistener.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Zork_Plain_Text.dir/Source_Files/damagelistener.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\Source Files\damagelistener.cpp" -o CMakeFiles\Zork_Plain_Text.dir\Source_Files\damagelistener.cpp.s
 
-CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.obj: CMakeFiles/Zork_Plain_Text.dir/flags.make
-CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.obj: CMakeFiles/Zork_Plain_Text.dir/includes_CXX.rsp
-CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.obj: ../Source\ Files/enemy.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Zork_Plain_Text.dir\Source_Files\enemy.cpp.obj -c "C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\Source Files\enemy.cpp"
-
-CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\Source Files\enemy.cpp" > CMakeFiles\Zork_Plain_Text.dir\Source_Files\enemy.cpp.i
-
-CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\Source Files\enemy.cpp" -o CMakeFiles\Zork_Plain_Text.dir\Source_Files\enemy.cpp.s
-
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.obj: CMakeFiles/Zork_Plain_Text.dir/flags.make
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.obj: CMakeFiles/Zork_Plain_Text.dir/includes_CXX.rsp
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.obj: ../Source\ Files/attacklistener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Zork_Plain_Text.dir\Source_Files\attacklistener.cpp.obj -c "C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\Source Files\attacklistener.cpp"
 
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.i: cmake_force
@@ -371,7 +357,6 @@ Zork_Plain_Text_OBJECTS = \
 "CMakeFiles/Zork_Plain_Text.dir/Source_Files/item.cpp.obj" \
 "CMakeFiles/Zork_Plain_Text.dir/Source_Files/takelistener.cpp.obj" \
 "CMakeFiles/Zork_Plain_Text.dir/Source_Files/damagelistener.cpp.obj" \
-"CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.obj" \
 "CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.obj"
 
 # External object files for target Zork_Plain_Text
@@ -396,13 +381,12 @@ Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/Source_Files/victorylistener
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/Source_Files/item.cpp.obj
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/Source_Files/takelistener.cpp.obj
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/Source_Files/damagelistener.cpp.obj
-Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.obj
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/Source_Files/attacklistener.cpp.obj
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/build.make
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/linklibs.rsp
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/objects1.rsp
 Zork_Plain_Text.exe: CMakeFiles/Zork_Plain_Text.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable Zork_Plain_Text.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\mikel\OneDrive - University of Limerick\2nd Year\Semester 2\CS4076 (Event Driven Programming)\Zork Plain Text\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable Zork_Plain_Text.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Zork_Plain_Text.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

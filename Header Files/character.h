@@ -16,7 +16,7 @@ class Character
 {
 public:
     Character(string name);
-    Character(string name, int health, int stamina, bool roaming);
+    Character(string name, int health, int stamina, bool isEnemy, bool roaming);
 
     string getName();
     int    getHealth();
@@ -30,6 +30,8 @@ public:
     void addToInventory(Item* newItem);
     void removeFromInventory(string itemName);
     bool itemInInventory(string itemName);
+    void Move(Character *enemy);
+    bool roamingCheck(Character *enemy);
 
 
 
@@ -38,8 +40,10 @@ private:
     int health;
     int stamina;
     bool roaming;
+    bool isEnemy;
     Room *currentRoom;
     vector<Item> Inventory;
+    string directions[4] = {"north", "east", "south", "west"};
 
 
 };

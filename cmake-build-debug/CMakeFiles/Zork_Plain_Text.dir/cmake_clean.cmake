@@ -4,7 +4,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Zork_Plain_Text.dir/Source_Files/characterdeathlistener.cpp.obj"
   "CMakeFiles/Zork_Plain_Text.dir/Source_Files/damagelistener.cpp.obj"
   "CMakeFiles/Zork_Plain_Text.dir/Source_Files/defeatlistener.cpp.obj"
-  "CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemy.cpp.obj"
   "CMakeFiles/Zork_Plain_Text.dir/Source_Files/enterroomlistener.cpp.obj"
   "CMakeFiles/Zork_Plain_Text.dir/Source_Files/eventmanager.cpp.obj"
   "CMakeFiles/Zork_Plain_Text.dir/Source_Files/exitlistener.cpp.obj"

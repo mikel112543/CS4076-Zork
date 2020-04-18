@@ -21,6 +21,7 @@ public:
     void teleport();
     void take(string itemName);
     void attack(string enemyName);
+    void removeEnemy(string enemyName);
 
     void update_screen();
 
@@ -32,7 +33,7 @@ public:
 private:
     Character      player;
     vector<Room *> rooms;
-    vector<Enemy *> enemies;
+    vector<Character *> enemies;
     bool           gameOver;
 
 

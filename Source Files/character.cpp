@@ -3,6 +3,9 @@
 #include "eventmanager.h"
 #include "item.h"
 #include "room.h"
+#include <time.h>
+#include <algorithm>
+#include <random>
 
 Character::Character(string name)
 {
@@ -12,13 +15,13 @@ Character::Character(string name)
     currentRoom = nullptr;
 }
 
-/*Character::Character(string name, int health, int stamina, bool roaming) {
+Character::Character(string name, int health, int stamina, bool isEnemy, bool roaming) {
     this->name = name;
     this->health = health;
     this->stamina = stamina;
+    this->isEnemy = isEnemy;
     this->roaming = roaming;
 }
- */
 
 string Character::getName()
 {
@@ -60,6 +63,10 @@ void Character::setStamina(int stamina)
     this->stamina = stamina;
 }
 
+bool Character::roamingCheck(Character *enemy) {
+    return roaming;
+}
+
 void Character::setCurrentRoom(Room *next)
 {
     currentRoom = next;
@@ -98,4 +105,23 @@ bool Character::itemInInventory(string itemName) {
     }
     return false;
 }
+
+void Character::Move(Character *enemy) {
+    srand(time(NULL));
+    Room *next;
+    for(int i = 0; i < directions->size() - 1; i++) {
+        int j = i + rand() % (directions->size() - i);      //Shuffle array of directions
+        std::swap(directions[i], directions[j]);
+    }
+    for(int i = 0; i < directions->size(); i++) {
+        if(enemy->getCurrentRoom()->getExit(directions[i]) != nullptr) {
+            next = enemy->getCurrentRoom()->getExit(directions[i]);
+            enemy->setCurrentRoom(next);
+            break;
+        }
+    }
+}
+
+
+
 

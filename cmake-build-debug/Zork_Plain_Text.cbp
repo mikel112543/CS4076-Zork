@@ -97,9 +97,6 @@
 		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/defeatlistener.h">
 			<Option target="Zork_Plain_Text"/>
 		</Unit>
-		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/enemy.h">
-			<Option target="Zork_Plain_Text"/>
-		</Unit>
 		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Header Files/enterroomlistener.h">
 			<Option target="Zork_Plain_Text"/>
 		</Unit>
@@ -158,9 +155,6 @@
 			<Option target="Zork_Plain_Text"/>
 		</Unit>
 		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/defeatlistener.cpp">
-			<Option target="Zork_Plain_Text"/>
-		</Unit>
-		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/enemy.cpp">
 			<Option target="Zork_Plain_Text"/>
 		</Unit>
 		<Unit filename="C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/enterroomlistener.cpp">

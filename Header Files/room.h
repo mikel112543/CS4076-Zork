@@ -23,15 +23,11 @@ public:
     Room *getExit(string direction);
     void addItem(Item *newItem);
     void removeItem(string itemName);
-    void addEnemy(Enemy *newEnemy);
     void setName(string name);
-    //void removeEnemy(string enemyName);
-    int numberOfItems();
     string displayItem();
-    string displayEnemy();
     string itemDescription(string itemName);
     bool isItemInRoom(string itemName);
-    bool lockCheck(Room* room);
+    bool lockCheck(Room *room);
     bool unlock(Room *room);
 
 
@@ -41,10 +37,6 @@ private:
     bool isLocked;
     map<string, Room *> exits;
     vector <Item> itemsInRoom;
-    vector <Enemy> enemiesInRoom;
-
-
-
 };
 
 #endif // ROOM_H
