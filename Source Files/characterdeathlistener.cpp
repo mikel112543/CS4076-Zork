@@ -1,3 +1,4 @@
+#include <iostream>
 #include "characterdeathlistener.h"
 
 #include "eventmanager.h"
@@ -18,5 +19,8 @@ void CharacterDeathListener::run(void *args)
 
     if (character->getName() == game->getPlayer().getName()) {
         EventManager::getInstance().trigger("defeat");
+    }else if (character->enemyCheck()) {                            //check if character is enemy
+        game->removeEnemy(character->getName());                    //remove enemy from game when health == 0;
+        cout << "You killed the " + character->getName() << endl;
     }
 }

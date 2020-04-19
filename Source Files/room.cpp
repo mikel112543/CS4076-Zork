@@ -1,8 +1,5 @@
 #include "room.h"
 #include "item.h"
-#include <vector>
-#include <iostream>
-#include <algorithm>
 
 Room::Room(string name) :
     name(name)
@@ -33,11 +30,11 @@ void Room::setName(string name) {
     this->name = name;
 }
 
-bool Room:: lockCheck(Room *room) {
+bool Room:: lockCheck() {
     return isLocked;
 }
 
-bool Room:: unlock(Room *room) {
+bool Room:: unlock() {
     return isLocked = false;
 }
 

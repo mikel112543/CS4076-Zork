@@ -43,46 +43,25 @@ Game::Game() :
     EventManager::getInstance().listen("defeat", new DefeatListener(this));
     EventManager::getInstance().listen("damage", new DamageListener(this));
 
-
     rooms.push_back(new Room("A")); // 0
-    rooms.push_back(new Room("B", true)); // 1
-    rooms.push_back(new Room("C", false)); // 2
-    rooms.push_back(new Room("D")); // 3
-    rooms.push_back(new Room("E", false)); // 4
-    rooms.push_back(new Room("F")); // 5
+    rooms.push_back(new Room("B" )); // 1
+    rooms.push_back(new Room("C")); // 2
+    rooms.push_back(new Room("D" )); // 3
+    rooms.push_back(new Room("E" )); // 4
+    rooms.push_back(new Room("F" )); // 5
     rooms.push_back(new Room("G")); // 6
     rooms.push_back(new Room("H")); // 7
     rooms.push_back(new Room("I")); // 8
-    rooms.push_back(new Room("J")); // 9
+    rooms.push_back(new Room("J", true)); // 9
 
-    rooms[0]->addItem(new Item("potion", "A strange elixir. I wonder what happens if i drink it?"));
-    rooms[0]->addItem(new Item("skull", "Very freaky looking thing"));
-    rooms[0]->addItem(new Item("key", "Oh a key. This might be useful on my adventure"));
-
+    rooms[0]->addItem(new Item("potion", "A strange elixir. You feel stronger than ever!"));
+    rooms[4]->addItem(new Item("skull", "Very freaky looking thing"));
+    rooms[6]->addItem(new Item("key", "Oh a key. This might be useful on my adventure"));
 
     enemies.push_back(new Character("dragon", 50, 80, true, false));  //0
     enemies.push_back(new Character("goblin", 20, 50, true, true));  //1
-    enemies.push_back(new Character("zombie", 20, 50, true, false));   //2
-
-
-
-
-
-    /*items.push_back(new Item("key", "Oh a key. This might be useful on my adventure"));
-    items.push_back(new Item("Juggernog","A strange elixir. I wonder what happens if I drink it "));
-    items.push_back(new Item("Skull of Nan Sapwe", "A freaky looking skull"));
-    items.push_back(new Item("Lightening Bow", "A bow infused with the lightening from Zeus himself!", true));
-    items.push_back(new Item("Void Bow", "A bow capable of opening the gates of Hell! ", true));
-     */
-
-
-    /*Item *key = new Item("key");
-    Item *juggernog = new Item( "Juggernog");
-    Item *skull = new Item("Skull of Nan Sapwe");
-    Item *lighteningBow = new Item("Lightening Bow");
-    Item *voidBow = new Item("Void Bow");
-     */
-
+    //enemies.push_back(new Character("zombie", 20, 50, true, true));
+    //enemies.push_back(new Character("ogre", 20, 50, true, true));    //2
 
     //                 N                E               S               W
     rooms[0]->setExits(rooms[4], rooms[2], rooms[7], rooms[1]);
@@ -107,9 +86,8 @@ void Game::reset(bool show_update) {
     player.setHealth(100);
     player.setStamina(100);
 
-    enemies[0]->setCurrentRoom(rooms[0]);
-    enemies[1]->setCurrentRoom(rooms[1]);
-    enemies[2]->setCurrentRoom(rooms[2]);
+    enemies[0]->setCurrentRoom(rooms[8]);
+    enemies[1]->setCurrentRoom(rooms[3]);
 
     cout << "Welcome to Zork!" << endl;
 
@@ -122,33 +100,36 @@ void Game::setOver(bool over) {
     this->gameOver = over;
 }
 
-void Game::map() {
+void Game::mapUpdate() {
     string names[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
-    string playerLocation = "[" + player.getCurrentRoom()->getName() + "]";
 
     for (int i = 0; i < rooms.size(); i++) {
-        if (player.getCurrentRoom() == rooms[i]) {
-            player.getCurrentRoom()->setName(playerLocation);          //add [] to players current room
-        }
         for (int j = 0; j < enemies.size(); j++) {
-            if (enemies[j]->getCurrentRoom() == rooms[i] &&
-                rooms[i]->getName() != ("!" + rooms[i]->getName() + "!")) {
-                enemies[j]->getCurrentRoom()->setName("!" + enemies[j]->getCurrentRoom()->getName() + "!");     // add !! to enemies current room
+            if (player.getCurrentRoom() == rooms[i] && enemies[j]->getCurrentRoom() != rooms[i]) {
+                rooms[i]->setName("[" + names[i] + "]" );                                      //add [] to players current room
+            } else if (enemies[j]->getCurrentRoom() == rooms[i] && player.getCurrentRoom() != rooms[i]) {
+                rooms[i]->setName("!" + names[i] + "!");                                       //add !! to enemies current room
+                j++;
+            } else if (enemies[j]->getCurrentRoom() == rooms[i] && player.getCurrentRoom() == rooms[i]) {
+                rooms[i]->setName("![" + names[i] + "]!");                                      //add ![]! to room with both enemies and player
+                j++;
+            } else {
+                rooms[i]->setName(names[i]);
             }
         }
     }
+}
 
-    cout << left << rooms[3]->getName() << "--- " << rooms[4]->getName() << "--- " << rooms[5]->getName() << endl;
+void Game::map() {
+    cout << rooms[3]->getName() << "--- " << rooms[4]->getName() << "---- " << rooms[5]->getName() << endl;
     cout << "      |" << endl;
-    cout << left << " " << rooms[1]->getName() << "--- " << rooms[0]->getName() << "--- " << rooms[2]->getName()
-         << endl;
+    cout << rooms[1]->getName() << "--- " << rooms[0]->getName() << "---- " << rooms[2]->getName() << endl;
     cout << "      |" << endl;
-    cout << left << " " << rooms[6]->getName() << "--- " << rooms[7]->getName() << "--- " << rooms[8]->getName()
-         << endl;
+    cout << " " << rooms[6]->getName() << "--- " << rooms[7]->getName() << "---- " << rooms[8]->getName() << endl;
     cout << "      |" << endl;
     cout << "      " << rooms[9]->getName() << endl;
 
-    /*cout << "     -------              -------                 ------- " << endl;
+    /*cout << "   -------                -------                 ------- " << endl;
     cout << "     |  D  |----------------|  E  |-----------------|  F  | " << endl;
     cout << "     -------                -------                 ------- " << endl;
     cout << "                               |                            " << endl;
@@ -193,12 +174,12 @@ void Game::go(string direction) {
     Room *next = player.getCurrentRoom()->getExit(direction);
 
     if (next != nullptr) {
-        if (!next->lockCheck(next)) {        //check for no lock on door
+        if (!next->lockCheck()) {        //check for no lock on door
             player.setCurrentRoom(next);
             player.setStamina(player.getStamina() - 1);
             EventManager::getInstance().trigger("enterRoom", next);
-            for (auto &enemy : enemies) {
-                if (enemy->roamingCheck(enemy)) {
+            for (auto enemy : enemies) {
+                if (enemy->roamingCheck()) {        //check if enemy can roam
                     enemy->Move(enemy);
                     enemy->setStamina(enemy->getStamina() - 1);
                 }
@@ -207,9 +188,10 @@ void Game::go(string direction) {
             if (player.itemInInventory("key")) {     //check for possession of key
                 cout << "This door is locked but you have a key! Hooray!" << endl;
                 cout << "Unlocking door..." << endl;
-                next->unlock(next);
+                next->unlock();                     //unlock door if key in inventory
                 player.setCurrentRoom(next);
                 player.removeFromInventory("key");
+                EventManager::getInstance().trigger("enterRoom", next);
             } else {
                 cout << "The room is locked and you have not got a key" << endl;
             }
@@ -266,11 +248,11 @@ void Game::removeEnemy(string enemyName) {
 
 void Game::update_screen() {
     if (!gameOver) {
+        mapUpdate();
         Room *currentRoom = player.getCurrentRoom();
 
         cout << endl;
         cout << "You are in " << currentRoom->getName() << endl;
-        //cout << "No. of items in this room = " << currentRoom->numberOfItems() << endl;
         cout << currentRoom->displayItem() << endl;
         cout << player.displayInventory() << endl;
         string tempString = "Enemies in room: ";

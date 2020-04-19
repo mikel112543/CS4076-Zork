@@ -19,11 +19,10 @@ public:
     Character(string name, int health, int stamina, bool isEnemy, bool roaming);
 
     string getName();
-    int    getHealth();
-    int    getStamina();
+    int getHealth();
+    int getStamina();
     Room  *getCurrentRoom();
     string displayInventory();
-    void setName(string name);
     void setHealth(int setHealth);
     void setStamina(int stamina);
     void setCurrentRoom(Room* next);
@@ -31,7 +30,9 @@ public:
     void removeFromInventory(string itemName);
     bool itemInInventory(string itemName);
     void Move(Character *enemy);
-    bool roamingCheck(Character *enemy);
+    bool roamingCheck();
+    bool enemyCheck();
+
 
 
 
@@ -43,7 +44,8 @@ private:
     bool isEnemy;
     Room *currentRoom;
     vector<Item> Inventory;
-    string directions[4] = {"north", "east", "south", "west"};
+
+
 
 
 };

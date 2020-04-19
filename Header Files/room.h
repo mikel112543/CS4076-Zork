@@ -27,8 +27,8 @@ public:
     string displayItem();
     string itemDescription(string itemName);
     bool isItemInRoom(string itemName);
-    bool lockCheck(Room *room);
-    bool unlock(Room *room);
+    bool lockCheck();
+    bool unlock();
 
 
 

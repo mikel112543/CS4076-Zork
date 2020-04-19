@@ -16,6 +16,7 @@ public:
     void reset(bool show_update = true);
 
     void map();
+    void mapUpdate();
     void info();
     void go(string direction);
     void teleport();
@@ -28,7 +29,6 @@ public:
     Character &getPlayer();
     void setOver(bool over);
     bool is_over();
-    void setCurrentRoom(Room *next);
 
 private:
     Character      player;

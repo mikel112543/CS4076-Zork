@@ -3,9 +3,9 @@
 #include "eventmanager.h"
 #include "item.h"
 #include "room.h"
-#include <time.h>
 #include <algorithm>
 #include <random>
+#include <chrono>
 
 Character::Character(string name)
 {
@@ -63,8 +63,12 @@ void Character::setStamina(int stamina)
     this->stamina = stamina;
 }
 
-bool Character::roamingCheck(Character *enemy) {
+bool Character::roamingCheck() {
     return roaming;
+}
+
+bool Character::enemyCheck() {
+    return isEnemy;
 }
 
 void Character::setCurrentRoom(Room *next)
@@ -107,17 +111,18 @@ bool Character::itemInInventory(string itemName) {
 }
 
 void Character::Move(Character *enemy) {
-    srand(time(NULL));
+    vector<string> directions {"north", "east", "south", "west"};
     Room *next;
-    for(int i = 0; i < directions->size() - 1; i++) {
-        int j = i + rand() % (directions->size() - i);      //Shuffle array of directions
-        std::swap(directions[i], directions[j]);
-    }
-    for(int i = 0; i < directions->size(); i++) {
-        if(enemy->getCurrentRoom()->getExit(directions[i]) != nullptr) {
-            next = enemy->getCurrentRoom()->getExit(directions[i]);
-            enemy->setCurrentRoom(next);
-            break;
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();       //create time based seed for shuffle
+
+    std::shuffle(directions.begin(), directions.end(), std::default_random_engine(seed));   //shuffle directions
+    for(auto & direction : directions) {
+        next = enemy->getCurrentRoom()->getExit(direction);
+        if(next != nullptr) {                                   //check exit isn't dead end
+            if(!next->lockCheck()) {                            //check exit isn't locked
+                enemy->setCurrentRoom(next);                    //move if satisfies
+                break;
+            }
         }
     }
 }
