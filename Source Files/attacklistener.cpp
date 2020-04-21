@@ -16,7 +16,6 @@ void AttackListener::run(void *args_ptr) {
         return;
     }
     auto *args = (vector<string> *) args_ptr;
-    Enemy *enemy = (Enemy*) args;
 
     if(args->size() > 1) {
         game->attack(args->at(1));

@@ -9,7 +9,6 @@
 using namespace std;
 
 class Item;
-class Enemy;
 
 class Room
 {
