@@ -257,6 +257,33 @@ Source_Files/defeatlistener.cpp.s:
 	$(MAKE) -f CMakeFiles\Zork_Plain_Text.dir\build.make CMakeFiles/Zork_Plain_Text.dir/Source_Files/defeatlistener.cpp.s
 .PHONY : Source_Files/defeatlistener.cpp.s
 
+Source_Files/enemydeathlistener.obj: Source_Files/enemydeathlistener.cpp.obj
+
+.PHONY : Source_Files/enemydeathlistener.obj
+
+# target to build an object file
+Source_Files/enemydeathlistener.cpp.obj:
+	$(MAKE) -f CMakeFiles\Zork_Plain_Text.dir\build.make CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj
+.PHONY : Source_Files/enemydeathlistener.cpp.obj
+
+Source_Files/enemydeathlistener.i: Source_Files/enemydeathlistener.cpp.i
+
+.PHONY : Source_Files/enemydeathlistener.i
+
+# target to preprocess a source file
+Source_Files/enemydeathlistener.cpp.i:
+	$(MAKE) -f CMakeFiles\Zork_Plain_Text.dir\build.make CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.i
+.PHONY : Source_Files/enemydeathlistener.cpp.i
+
+Source_Files/enemydeathlistener.s: Source_Files/enemydeathlistener.cpp.s
+
+.PHONY : Source_Files/enemydeathlistener.s
+
+# target to generate assembly for a file
+Source_Files/enemydeathlistener.cpp.s:
+	$(MAKE) -f CMakeFiles\Zork_Plain_Text.dir\build.make CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.s
+.PHONY : Source_Files/enemydeathlistener.cpp.s
+
 Source_Files/enterroomlistener.obj: Source_Files/enterroomlistener.cpp.obj
 
 .PHONY : Source_Files/enterroomlistener.obj
@@ -686,6 +713,9 @@ help:
 	@echo ... Source_Files/defeatlistener.obj
 	@echo ... Source_Files/defeatlistener.i
 	@echo ... Source_Files/defeatlistener.s
+	@echo ... Source_Files/enemydeathlistener.obj
+	@echo ... Source_Files/enemydeathlistener.i
+	@echo ... Source_Files/enemydeathlistener.s
 	@echo ... Source_Files/enterroomlistener.obj
 	@echo ... Source_Files/enterroomlistener.i
 	@echo ... Source_Files/enterroomlistener.s

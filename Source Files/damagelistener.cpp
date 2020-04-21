@@ -25,11 +25,13 @@ void DamageListener::run(void * args)
     if(item->getName() == "skull") {
         game->getPlayer().setHealth(game->getPlayer().getHealth() - 75);    //triggered if skull is picked up
         game->getPlayer().removeFromInventory("skull");
+        delete item;                //CALLING ITEM DESTRUCTOR
         cout << endl;
         cout << "Ouch! You feel the skull damage your soul." << endl;
     }else if(item->getName() == "potion") {
         game->getPlayer().setHealth(game->getPlayer().getHealth() + 20);    //triggered if skull is picked up
         game->getPlayer().removeFromInventory("potion");
+        delete item;                //CALLING ITEM DESTRUCTOR
     }
 }
 

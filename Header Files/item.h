@@ -15,19 +15,9 @@ class Item {
 public:
     Item(string newName, string description, bool weaponCheck);
     Item(string name, string description);
-    string getShortDescription();
+    ~Item();
     string getDescription();
     string getName();
-
-
-    //string getName();
-    //Room *getCurrentRoom();
-
-
-    // void setName(string name);
-    //void setCurrentRoom(Room *next);
-
-   // void setName(const string &name);
 
 private:
     string name;

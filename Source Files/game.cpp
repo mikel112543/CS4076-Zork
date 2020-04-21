@@ -14,6 +14,7 @@
 #include "teleportlistener.h"
 #include "exitlistener.h"
 #include "characterdeathlistener.h"
+#include "enemydeathlistener.h"
 #include "enterroomlistener.h"
 #include "victorylistener.h"
 #include "defeatlistener.h"
@@ -38,6 +39,7 @@ Game::Game() :
 
     // State changes
     EventManager::getInstance().listen("characterDeath", new CharacterDeathListener(this));
+    EventManager::getInstance().listen("enemyDeath", new EnemyDeathListener(this));
     EventManager::getInstance().listen("enterRoom", new EnterRoomListener(this));
     EventManager::getInstance().listen("victory", new VictoryListener(this));
     EventManager::getInstance().listen("defeat", new DefeatListener(this));
@@ -58,8 +60,8 @@ Game::Game() :
     rooms[4]->addItem(new Item("skull", "Very freaky looking thing"));
     rooms[6]->addItem(new Item("key", "Oh a key. This might be useful on my adventure"));
 
-    enemies.push_back(new Character("dragon", 50, 80, true, false));  //0
-    enemies.push_back(new Character("goblin", 20, 50, true, true));  //1
+    enemies.push_back(new Enemy("dragon", 10, 80, true, false));  //0
+    enemies.push_back(new Enemy("goblin", 20, 50, true, true));  //1
     //enemies.push_back(new Character("zombie", 20, 50, true, true));
     //enemies.push_back(new Character("ogre", 20, 50, true, true));    //2
 
@@ -111,11 +113,15 @@ void Game::mapUpdate() {
                 rooms[i]->setName("!" + names[i] + "!");                                       //add !! to enemies current room
                 j++;
             } else if (enemies[j]->getCurrentRoom() == rooms[i] && player.getCurrentRoom() == rooms[i]) {
-                rooms[i]->setName("![" + names[i] + "]!");                                      //add ![]! to room with both enemies and player
+                rooms[i]->setName("![" + names[i] +
+                                  "]!");                                      //add ![]! to room with both enemies and player
                 j++;
-            } else {
+            }else {
                 rooms[i]->setName(names[i]);
             }
+        }
+        if(enemies.empty() && player.getCurrentRoom() == rooms[i]) {
+            rooms[i]->setName("[" + names[i] + "]");
         }
     }
 }
@@ -270,8 +276,8 @@ void Game::update_screen() {
         cout << endl;
 
         cout << "Player HP: " << player.getHealth() << " Player ST: " << player.getStamina() << endl;
-        for (int i = 0; i < enemies.size(); i++) {
-            if (player.getCurrentRoom() == enemies[i]->getCurrentRoom()) {
+        for(int i = 0; i < enemies.size(); i++) {
+            if(currentRoom == enemies[i]->getCurrentRoom()) {
                 cout << enemies[i]->getName() << " HP: " << enemies[i]->getHealth() << " " << enemies[i]->getName()
                      << " ST: " << enemies[i]->getStamina() << endl;
             }

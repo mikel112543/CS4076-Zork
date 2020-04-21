@@ -17,7 +17,6 @@ public:
     Room(string name);
     Room(string name, bool isLocked);
 
-
     string getName();
     void setExits(Room *north, Room *east, Room *south, Room *west);
     Room *getExit(string direction);

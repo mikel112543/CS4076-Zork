@@ -54,7 +54,7 @@ void Room::addItem(Item* newItem)
 void Room::removeItem(string itemName) {
     for(int i = 0; i < itemsInRoom.size(); i++) {
         if(itemsInRoom[i].getName() == itemName) {
-            itemsInRoom.erase(itemsInRoom.begin() + i); //erase item at point i
+            itemsInRoom.erase(itemsInRoom.begin() + i);         //erase item at point i
             break;
         }
     }

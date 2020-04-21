@@ -37,4 +37,4 @@ add_executable(Zork_Plain_Text
         "Source Files/restartlistener.cpp"
         "Source Files/room.cpp"
         "Source Files/teleportlistener.cpp"
-        "Source Files/victorylistener.cpp" "Source Files/item.cpp" "Header Files/item.h" "Source Files/takelistener.cpp" "Header Files/takelistener.h" "Source Files/damagelistener.cpp" "Header Files/damagelistener.h" "Source Files/attacklistener.cpp" "Header Files/attacklistener.h")
+        "Source Files/victorylistener.cpp" "Source Files/item.cpp" "Header Files/item.h" "Source Files/takelistener.cpp" "Header Files/takelistener.h" "Source Files/damagelistener.cpp" "Header Files/damagelistener.h" "Source Files/attacklistener.cpp" "Header Files/attacklistener.h" "Source Files/enemydeathlistener.cpp" "Header Files/enemydeathlistener.h")

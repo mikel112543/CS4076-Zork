@@ -14,8 +14,9 @@ Item::Item(string newName, string description, bool weaponCheck) {
     this->description = description;
     weaponCheck = true;
 }
-string Item::getShortDescription() {
-    return name + ": " + description;
+
+Item::~Item() {
+
 }
 
 string Item::getDescription() {

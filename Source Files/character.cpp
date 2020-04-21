@@ -6,6 +6,9 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
+#include <iostream>
+
+Character::Character() {}
 
 Character::Character(string name)
 {
@@ -15,12 +18,10 @@ Character::Character(string name)
     currentRoom = nullptr;
 }
 
-Character::Character(string name, int health, int stamina, bool isEnemy, bool roaming) {
-    this->name = name;
-    this->health = health;
-    this->stamina = stamina;
-    this->isEnemy = isEnemy;
-    this->roaming = roaming;
+Character::~Character() {
+
+    std::cout<<"\n Destructor called \n";
+
 }
 
 string Character::getName()
@@ -63,20 +64,12 @@ void Character::setStamina(int stamina)
     this->stamina = stamina;
 }
 
-bool Character::roamingCheck() {
-    return roaming;
-}
-
-bool Character::enemyCheck() {
-    return isEnemy;
-}
-
 void Character::setCurrentRoom(Room *next)
 {
     currentRoom = next;
 }
 
-void Character::addToInventory(Item* newItem) {
+void Character::addToInventory(Item *newItem) {
     Inventory.push_back(*newItem);
 }
 
@@ -110,7 +103,33 @@ bool Character::itemInInventory(string itemName) {
     return false;
 }
 
-void Character::Move(Character *enemy) {
+Enemy::Enemy(string name, int health, int stamina, bool isEnemy, bool roaming)  {
+    this->name = name;
+    this->health = health;
+    this->stamina = stamina;
+    this->isEnemy = isEnemy;
+    this->roaming = roaming;
+}
+
+Enemy::~Enemy() {
+
+}
+
+void Enemy::setHealth(int health)
+{
+    if (health <= 0) {
+        health = 0;
+        EventManager::getInstance().trigger("enemyDeath", this);
+    }
+
+    this->health = health;
+}
+
+bool Enemy::roamingCheck() {
+    return roaming;
+}
+
+void Enemy::Move(Enemy *enemy) {
     vector<string> directions {"north", "east", "south", "west"};
     Room *next;
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();       //create time based seed for shuffle
@@ -126,6 +145,8 @@ void Character::Move(Character *enemy) {
         }
     }
 }
+
+
 
 
 

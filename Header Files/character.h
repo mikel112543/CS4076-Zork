@@ -12,42 +12,50 @@ using namespace std;
 // This is called a "forward declaration".
 class Room;
 
-class Character
-{
+class Character {
+
 public:
+    Character();
     Character(string name);
-    Character(string name, int health, int stamina, bool isEnemy, bool roaming);
+    ~Character();
 
     string getName();
     int getHealth();
     int getStamina();
-    Room  *getCurrentRoom();
+    Room *getCurrentRoom();
     string displayInventory();
-    void setHealth(int setHealth);
+    virtual void setHealth(int health);
     void setStamina(int stamina);
     void setCurrentRoom(Room* next);
     void addToInventory(Item* newItem);
     void removeFromInventory(string itemName);
     bool itemInInventory(string itemName);
-    void Move(Character *enemy);
-    bool roamingCheck();
-    bool enemyCheck();
-
-
-
 
 private:
     string name;
     int health;
     int stamina;
-    bool roaming;
-    bool isEnemy;
     Room *currentRoom;
     vector<Item> Inventory;
+};
 
 
+class Enemy : public Character {
 
+public:
+    Enemy(string name, int health, int stamina, bool isEnemy, bool roaming);
+    ~Enemy();
+    bool roamingCheck();
+    void Move(Enemy *enemy);
+    void setHealth(int health);
 
+private:
+    string name;
+    int health;
+    int stamina;
+    bool isEnemy;
+    bool roaming;
+    Room *currentRoom;
 };
 
 #endif // CHARACTER_H
