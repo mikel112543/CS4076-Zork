@@ -42,6 +42,15 @@ CMakeFiles/Zork_Plain_Text.dir/Source_Files/defeatlistener.cpp.obj: ../Header\ F
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/defeatlistener.cpp.obj: ../Header\ Files/room.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/defeatlistener.cpp.obj: ../Source\ Files/defeatlistener.cpp
 
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Header\ Files/character.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Header\ Files/enemydeathlistener.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Header\ Files/eventlistener.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Header\ Files/eventmanager.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Header\ Files/game.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Header\ Files/item.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Header\ Files/room.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj: ../Source\ Files/enemydeathlistener.cpp
+
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/enterroomlistener.cpp.obj: ../Header\ Files/character.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/enterroomlistener.cpp.obj: ../Header\ Files/enterroomlistener.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/enterroomlistener.cpp.obj: ../Header\ Files/eventlistener.h
@@ -69,6 +78,7 @@ CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/chara
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/characterdeathlistener.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/damagelistener.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/defeatlistener.h
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/enemydeathlistener.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/enterroomlistener.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/eventlistener.h
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj: ../Header\ Files/eventmanager.h

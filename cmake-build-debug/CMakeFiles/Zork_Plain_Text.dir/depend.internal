@@ -42,6 +42,15 @@ CMakeFiles/Zork_Plain_Text.dir/Source_Files/defeatlistener.cpp.obj
  ../Header Files/item.h
  ../Header Files/room.h
  C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/defeatlistener.cpp
+CMakeFiles/Zork_Plain_Text.dir/Source_Files/enemydeathlistener.cpp.obj
+ ../Header Files/character.h
+ ../Header Files/enemydeathlistener.h
+ ../Header Files/eventlistener.h
+ ../Header Files/eventmanager.h
+ ../Header Files/game.h
+ ../Header Files/item.h
+ ../Header Files/room.h
+ C:/Users/mikel/OneDrive - University of Limerick/2nd Year/Semester 2/CS4076 (Event Driven Programming)/Zork Plain Text/Source Files/enemydeathlistener.cpp
 CMakeFiles/Zork_Plain_Text.dir/Source_Files/enterroomlistener.cpp.obj
  ../Header Files/character.h
  ../Header Files/enterroomlistener.h
@@ -70,6 +79,7 @@ CMakeFiles/Zork_Plain_Text.dir/Source_Files/game.cpp.obj
  ../Header Files/characterdeathlistener.h
  ../Header Files/damagelistener.h
  ../Header Files/defeatlistener.h
+ ../Header Files/enemydeathlistener.h
  ../Header Files/enterroomlistener.h
  ../Header Files/eventlistener.h
  ../Header Files/eventmanager.h

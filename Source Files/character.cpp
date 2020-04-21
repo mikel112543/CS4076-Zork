@@ -71,7 +71,7 @@ bool Character::enemyCheck() {
     return isEnemy;
 }
 
-void Character::setCurrentRoom(Room *next)
+void Character::setCurrentRoom(Room* next)
 {
     currentRoom = next;
 }

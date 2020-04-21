@@ -86,7 +86,7 @@ void Game::reset(bool show_update) {
     player.setHealth(100);
     player.setStamina(100);
 
-    enemies[0]->setCurrentRoom(rooms[8]);
+    enemies[0]->setCurrentRoom(rooms[5]);
     enemies[1]->setCurrentRoom(rooms[3]);
 
     cout << "Welcome to Zork!" << endl;

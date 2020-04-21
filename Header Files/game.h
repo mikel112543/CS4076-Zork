@@ -32,8 +32,8 @@ public:
 
 private:
     Character      player;
-    vector<Room *> rooms;
-    vector<Character *> enemies;
+    vector<Room*> rooms;
+    vector<Enemy*> enemies;
     bool           gameOver;
 
 
