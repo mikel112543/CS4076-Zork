@@ -104,13 +104,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
   </component>
-  <component name="RunManager">
-    <configuration name="Zork_Plain_Text" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Zork_Plain_Text" TARGET_NAME="Zork_Plain_Text" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Zork_Plain_Text" RUN_TARGET_NAME="Zork_Plain_Text">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
