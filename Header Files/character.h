@@ -15,8 +15,9 @@ class Room;
 class Character {
 
 public:
-    Character();
+
     Character(string name);
+    Character(const string &name, int health, int stamina);
     ~Character();
 
     string getName();
@@ -43,11 +44,14 @@ private:
 class Enemy : public Character {
 
 public:
-    Enemy(string name, int health, int stamina, bool isEnemy, bool roaming);
+    Enemy(const string &name, int health, int stamina, bool isEnemy, bool roaming);
     ~Enemy();
     bool roamingCheck();
     void Move(Enemy *enemy);
+    //int getHealth();
+    //int getStamina();
     void setHealth(int health);
+    //Room *getCurrentRoom();
 
 private:
     string name;

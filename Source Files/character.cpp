@@ -8,7 +8,13 @@
 #include <chrono>
 #include <iostream>
 
-Character::Character() {}
+
+Character::Character(const string &name, int health, int stamina){
+    this->name = name;
+    this->health = health;
+    this->stamina = stamina;
+
+}
 
 Character::Character(string name)
 {
@@ -103,12 +109,11 @@ bool Character::itemInInventory(string itemName) {
     return false;
 }
 
-Enemy::Enemy(string name, int health, int stamina, bool isEnemy, bool roaming)  {
+Enemy::Enemy(const string &name, int health, int stamina, bool _isEnemy, bool _roaming) : Character(name, health, stamina), isEnemy(_isEnemy), roaming(_roaming){
     this->name = name;
-    this->health = health;
     this->stamina = stamina;
-    this->isEnemy = isEnemy;
-    this->roaming = roaming;
+    this->isEnemy = _isEnemy;
+    this->roaming = _roaming;
 }
 
 Enemy::~Enemy() {
@@ -128,6 +133,7 @@ void Enemy::setHealth(int health)
 bool Enemy::roamingCheck() {
     return roaming;
 }
+
 
 void Enemy::Move(Enemy *enemy) {
     vector<string> directions {"north", "east", "south", "west"};

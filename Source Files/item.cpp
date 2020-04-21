@@ -4,15 +4,11 @@
 
 #include "item.h"
 
-Item::Item(string name, string description) {
-    this->name = name;
-    this->description = description;
-}
+#include <utility>
 
-Item::Item(string newName, string description, bool weaponCheck) {
-    this->name = newName;
-    this->description = description;
-    weaponCheck = true;
+Item::Item(string name, string description) {
+    this->name = std::move(name);
+    this->description = std::move(description);
 }
 
 Item::~Item() {

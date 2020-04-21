@@ -13,7 +13,6 @@ using namespace std;
 class Item {
 
 public:
-    Item(string newName, string description, bool weaponCheck);
     Item(string name, string description);
     ~Item();
     string getDescription();
