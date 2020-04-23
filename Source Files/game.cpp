@@ -2,6 +2,7 @@
 
 #include<ctime>
 #include<iostream>
+#include <bits/unique_ptr.h>
 
 #include "eventmanager.h"
 #include "room.h"
@@ -60,8 +61,8 @@ Game::Game() :
     rooms[4]->addItem(new Item("skull", "Very freaky looking thing"));
     rooms[6]->addItem(new Item("key", "Oh a key. This might be useful on my adventure"));
 
-    enemies.push_back(new Enemy( "dragon", 10, 80, true, false));  //0
-    enemies.push_back(new Enemy( "goblin", 20, 50, true, true));  //1
+    enemies.push_back(new Enemy( "dragon", 10, 80, false));  //0
+    enemies.push_back(new Enemy( "goblin", 20, 50, true));  //1
     //enemies.push_back(new Character("zombie", 20, 50, true, true));
     //enemies.push_back(new Character("ogre", 20, 50, true, true));    //2
 
@@ -276,10 +277,10 @@ void Game::update_screen() {
         cout << endl;
 
         cout << "Player HP: " << player.getHealth() << " Player ST: " << player.getStamina() << endl;
-        for(int i = 0; i < enemies.size(); i++) {
-            if(currentRoom == enemies[i]->getCurrentRoom()) {
-                cout << enemies[i]->getName() << " HP: " << enemies[i]->getHealth() << " " << enemies[i]->getName()
-                     << " ST: " << enemies[i]->getStamina() << endl;
+        for(auto & enemy : enemies) {
+            if(currentRoom == enemy->getCurrentRoom()) {
+                cout << enemy->getName() << " HP: " << enemy->getHealth() << " " << enemy->getName()
+                     << " ST: " << enemy->getStamina() << endl;
             }
         }
     } else {

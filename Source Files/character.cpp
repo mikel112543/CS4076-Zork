@@ -7,13 +7,13 @@
 #include <random>
 #include <chrono>
 #include <iostream>
+#include <memory>
 
 
 Character::Character(const string &name, int health, int stamina){
     this->name = name;
     this->health = health;
     this->stamina = stamina;
-
 }
 
 Character::Character(string name)
@@ -26,7 +26,7 @@ Character::Character(string name)
 
 Character::~Character() {
 
-    std::cout<<"\n Destructor called \n";
+    std::cout<<"\n Character deleted \n";
 
 }
 
@@ -75,13 +75,13 @@ void Character::setCurrentRoom(Room *next)
     currentRoom = next;
 }
 
-void Character::addToInventory(Item *newItem) {
-    Inventory.push_back(*newItem);
+void Character::addToInventory(Item* newItem) {
+    Inventory.push_back(newItem);
 }
 
 void Character::removeFromInventory(string itemName) {
     for(int i = 0; i < Inventory.size(); i++) {
-        if(Inventory[i].getName() == itemName) {
+        if(Inventory[i]->getName() == itemName) {
             Inventory.erase(Inventory.begin()+i);
             break;
         }
@@ -91,7 +91,7 @@ void Character::removeFromInventory(string itemName) {
 string Character::displayInventory() {
     string tempString = "Inventory: ";
     for(auto & i : Inventory) {
-        tempString += i.getName() + ", ";
+        tempString += i->getName() + ", ";
     }
     return tempString;
 }
@@ -101,7 +101,7 @@ bool Character::itemInInventory(string itemName) {
         return false;
     }else{
         for(auto & i : Inventory) {
-            if(itemName == i.getName()) {
+            if(itemName == i->getName()) {
                 return true;
             }
         }
@@ -109,15 +109,20 @@ bool Character::itemInInventory(string itemName) {
     return false;
 }
 
-Enemy::Enemy(const string &name, int health, int stamina, bool _isEnemy, bool _roaming) : Character(name, health, stamina), isEnemy(_isEnemy), roaming(_roaming){
+Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina), roaming(_roaming){
     this->name = name;
+    this->health = health;
     this->stamina = stamina;
-    this->isEnemy = _isEnemy;
     this->roaming = _roaming;
 }
 
 Enemy::~Enemy() {
 
+}
+
+int Enemy::getHealth()
+{
+    return health;
 }
 
 void Enemy::setHealth(int health)

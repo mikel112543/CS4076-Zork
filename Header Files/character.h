@@ -19,9 +19,8 @@ public:
     Character(string name);
     Character(const string &name, int health, int stamina);
     ~Character();
-
     string getName();
-    int getHealth();
+    virtual int getHealth();
     int getStamina();
     Room *getCurrentRoom();
     string displayInventory();
@@ -34,32 +33,28 @@ public:
 
 private:
     string name;
+    Room *currentRoom;
     int health;
     int stamina;
-    Room *currentRoom;
-    vector<Item> Inventory;
+    vector<Item*> Inventory;
 };
 
 
 class Enemy : public Character {
 
 public:
-    Enemy(const string &name, int health, int stamina, bool isEnemy, bool roaming);
+    Enemy(const string &name, int health, int stamina, bool _roaming);
     ~Enemy();
     bool roamingCheck();
     void Move(Enemy *enemy);
-    //int getHealth();
-    //int getStamina();
-    void setHealth(int health);
-    //Room *getCurrentRoom();
+    virtual int getHealth() override;
+    virtual void setHealth(int health) override;
 
 private:
     string name;
     int health;
     int stamina;
-    bool isEnemy;
     bool roaming;
-    Room *currentRoom;
 };
 
 #endif // CHARACTER_H

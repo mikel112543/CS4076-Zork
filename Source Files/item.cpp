@@ -2,9 +2,9 @@
 // Created by Michael on 31/03/2020.
 //
 
+#include <iostream>
 #include "item.h"
 
-#include <utility>
 
 Item::Item(string name, string description) {
     this->name = std::move(name);
@@ -13,6 +13,7 @@ Item::Item(string name, string description) {
 
 Item::~Item() {
 
+    std::cout<<"\n Item deleted \n";
 }
 
 string Item::getDescription() {
