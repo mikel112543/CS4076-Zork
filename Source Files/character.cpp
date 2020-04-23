@@ -7,13 +7,9 @@
 #include <random>
 #include <chrono>
 #include <iostream>
-#include <memory>
 
 
-Character::Character(const string &name, int health, int stamina){
-    this->name = name;
-    this->health = health;
-    this->stamina = stamina;
+Character::Character(const string &_name, int _health, int _stamina) : name(_name), health(_health), stamina(_stamina){
 }
 
 Character::Character(string name)
@@ -35,12 +31,12 @@ string Character::getName()
     return name;
 }
 
-int Character::getHealth()
+int Character::getHealth() const
 {
     return health;
 }
 
-int Character::getStamina()
+int Character::getStamina() const
 {
     return stamina;
 }
@@ -50,24 +46,22 @@ Room *Character::getCurrentRoom()
     return currentRoom;
 }
 
-void Character::setHealth(int health)
+void Character::setHealth(int _health)
 {
-    if (health <= 0) {
+    if (_health <= 0) {
         health = 0;
         EventManager::getInstance().trigger("characterDeath", this);
     }
-
-    this->health = health;
+    health = _health;
 }
 
-void Character::setStamina(int stamina)
+void Character::setStamina(int _stamina)
 {
     if (stamina <= 0) {
         stamina = 0;
         EventManager::getInstance().trigger("characterDeath", this);
     }
-
-    this->stamina = stamina;
+    stamina = _stamina;
 }
 
 void Character::setCurrentRoom(Room *next)
@@ -110,29 +104,9 @@ bool Character::itemInInventory(string itemName) {
 }
 
 Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina), roaming(_roaming){
-    this->name = name;
-    this->health = health;
-    this->stamina = stamina;
-    this->roaming = _roaming;
 }
 
 Enemy::~Enemy() {
-
-}
-
-int Enemy::getHealth()
-{
-    return health;
-}
-
-void Enemy::setHealth(int health)
-{
-    if (health <= 0) {
-        health = 0;
-        EventManager::getInstance().trigger("enemyDeath", this);
-    }
-
-    this->health = health;
 }
 
 bool Enemy::roamingCheck() {

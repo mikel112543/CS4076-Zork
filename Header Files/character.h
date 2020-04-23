@@ -17,19 +17,20 @@ class Character {
 public:
 
     Character(string name);
-    Character(const string &name, int health, int stamina);
+    Character(const string &_name, int _health, int _stamina);
     ~Character();
     string getName();
-    virtual int getHealth();
-    int getStamina();
+    int getHealth() const;
+    int getStamina()const;
     Room *getCurrentRoom();
     string displayInventory();
-    virtual void setHealth(int health);
-    void setStamina(int stamina);
+    void setHealth(int _health);
+    void setStamina(int _stamina);
     void setCurrentRoom(Room* next);
     void addToInventory(Item* newItem);
     void removeFromInventory(string itemName);
     bool itemInInventory(string itemName);
+
 
 private:
     string name;
@@ -47,13 +48,9 @@ public:
     ~Enemy();
     bool roamingCheck();
     void Move(Enemy *enemy);
-    virtual int getHealth() override;
-    virtual void setHealth(int health) override;
+
 
 private:
-    string name;
-    int health;
-    int stamina;
     bool roaming;
 };
 
