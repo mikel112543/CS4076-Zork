@@ -15,7 +15,6 @@ class Room;
 class Character {
 
 public:
-
     Character(string name);
     Character(const string &_name, int _health, int _stamina);
     ~Character();
@@ -24,8 +23,8 @@ public:
     int getStamina()const;
     Room *getCurrentRoom();
     string displayInventory();
-    void setHealth(int _health);
-    void setStamina(int _stamina);
+    virtual void setHealth(int _health);
+    virtual void setStamina(int _stamina);
     void setCurrentRoom(Room* next);
     void addToInventory(Item* newItem);
     void removeFromInventory(string itemName);
@@ -40,6 +39,9 @@ private:
     vector<Item*> Inventory;
 };
 
+
+class Player : public Character {
+};
 
 class Enemy : public Character {
 

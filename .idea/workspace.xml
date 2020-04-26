@@ -19,9 +19,8 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/exam" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:exam" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -36,11 +35,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0db526-dced-4e97-9336-d6ddbe97bc65" name="Default Changelist" comment="- Created working enemy subclass with working arguments.&#10;- Created override for Health getter and Health setter &#10;- Added destructors for enemy and characters and beginning to work with destructor for pointers of items using smart pointers">
+    <list default="true" id="9b0db526-dced-4e97-9336-d6ddbe97bc65" name="Default Changelist" comment="- Removed override getter and setter for enemy class figured it was useless code&#10;- Fully functional Enemy subclass">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header Files/character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header Files/character.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source Files/character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source Files/character.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source Files/characterdeathlistener.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source Files/characterdeathlistener.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Zork_Plain_Text.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Zork_Plain_Text.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +54,11 @@
       <list>
         <option value="Michael Danaher &lt;michael.danaher112543@gmail.com&gt;" />
       </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="IntegrateCharacterToAbstract" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -98,7 +100,8 @@
       <workItem from="1587336484772" duration="114000" />
       <workItem from="1587336633753" duration="62000" />
       <workItem from="1587404492522" duration="19520000" />
-      <workItem from="1587657152383" duration="19915000" />
+      <workItem from="1587657152383" duration="22199000" />
+      <workItem from="1587918073227" duration="12350000" />
     </task>
     <task id="LOCAL-00001" summary="- Got separate enemy constructor working (except room and health update not working etc..)&#10;- Added new Character constructor to match enemy constructor (might remove)&#10;- Changed name to constant references for code efficiency">
       <created>1587508523882</created>
@@ -114,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587675047032</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- Removed override getter and setter for enemy class figured it was useless code&#10;- Fully functional Enemy subclass">
+      <created>1587681525978</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587681525978</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +141,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/exam" />
+                        <option value="exam" />
                       </list>
                     </value>
                   </entry>
@@ -148,7 +158,8 @@
     <MESSAGE value="- Reverted back to character type vector&#10;- Enemy type vector located on &quot;exam&quot; branch" />
     <MESSAGE value="- Got separate enemy constructor working (except room and health update not working etc..)&#10;- Added new Character constructor to match enemy constructor (might remove)&#10;- Changed name to constant references for code efficiency" />
     <MESSAGE value="- Created working enemy subclass with working arguments.&#10;- Created override for Health getter and Health setter &#10;- Added destructors for enemy and characters and beginning to work with destructor for pointers of items using smart pointers" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Created working enemy subclass with working arguments.&#10;- Created override for Health getter and Health setter &#10;- Added destructors for enemy and characters and beginning to work with destructor for pointers of items using smart pointers" />
+    <MESSAGE value="- Removed override getter and setter for enemy class figured it was useless code&#10;- Fully functional Enemy subclass" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Removed override getter and setter for enemy class figured it was useless code&#10;- Fully functional Enemy subclass" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587498825345">
@@ -163,54 +174,62 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="818" y="293" key="#xdebugger.XInspectDialog/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587657540401" />
+    <state x="184" y="90" key="DiffContextDialog" timestamp="1587932386659">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="184" y="90" key="DiffContextDialog/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587932386659" />
     <state x="827" y="290" key="EnvironmentVariablesDialog" timestamp="1587498756127">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="827" y="290" key="EnvironmentVariablesDialog/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587498756127" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1587681472125">
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1587935562798">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681472125" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587935562798" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom/-1366.97.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587336694974" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1587681472125">
+    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1587935562798">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.center/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681472125" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587935562798" />
     <state width="1877" height="295" key="GridCell.Tab.0.center/-1366.97.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587336694974" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1587681472124">
+    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1587935562798">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.left/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681472124" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587935562798" />
     <state width="1877" height="295" key="GridCell.Tab.0.left/-1366.97.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587336694974" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1587681472125">
+    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1587935562798">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.right/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681472125" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587935562798" />
     <state width="1877" height="295" key="GridCell.Tab.0.right/-1366.97.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587336694974" />
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1587681216844">
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1587684000447">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681216844" />
-    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1587681216843">
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587684000447" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1587684000447">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.center/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681216843" />
-    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1587681216843">
+    <state width="1877" height="363" key="GridCell.Tab.1.center/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587684000447" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1587684000447">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.left/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681216843" />
-    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1587681216843">
+    <state width="1877" height="363" key="GridCell.Tab.1.left/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587684000447" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1587684000447">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.right/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681216843" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587684000447" />
+    <state x="549" y="242" key="RollbackChangesDialog" timestamp="1587932388299">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="549" y="242" key="RollbackChangesDialog/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587932388299" />
     <state x="461" y="185" key="SettingsEditor" timestamp="1587671067955">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="185" key="SettingsEditor/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587671067955" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587675053142">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587681530141">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587675053142" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587681530141" />
     <state x="769" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587498423997">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -223,16 +242,5 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/-1366.120.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1587502146556" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source Files/game.cpp</url>
-          <line>234</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
