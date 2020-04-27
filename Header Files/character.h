@@ -15,42 +15,51 @@ class Room;
 class Character {
 
 public:
-    Character(string name);
     Character(const string &_name, int _health, int _stamina);
-    ~Character();
+    virtual ~Character();
     string getName();
     int getHealth() const;
     int getStamina()const;
     Room *getCurrentRoom();
-    string displayInventory();
     virtual void setHealth(int _health);
     virtual void setStamina(int _stamina);
     void setCurrentRoom(Room* next);
-    void addToInventory(Item* newItem);
-    void removeFromInventory(string itemName);
-    bool itemInInventory(string itemName);
-
 
 private:
     string name;
-    Room *currentRoom;
+
+protected:
     int health;
     int stamina;
-    vector<Item*> Inventory;
+    Room *currentRoom;
 };
 
-
 class Player : public Character {
+
+public:
+    Player(const string &name);
+    ~Player() override;
+    string displayInventory();
+    void addToInventory(Item* newItem);
+    void removeFromInventory(string itemName);
+    bool itemInInventory(string itemName);
+    void setHealth(int _health) override;
+    void setStamina(int _stamina) override;
+
+private:
+    vector<Item*> Inventory;
+
 };
 
 class Enemy : public Character {
 
 public:
     Enemy(const string &name, int health, int stamina, bool _roaming);
-    ~Enemy();
-    bool roamingCheck();
+    ~Enemy() override;
+    bool roamingCheck() const;
     void Move(Enemy *enemy);
-
+    void setHealth(int _health) override;
+    void setStamina(int _stamina) override;
 
 private:
     bool roaming;

@@ -26,12 +26,12 @@ public:
 
     void update_screen();
 
-    Character &getPlayer();
+    Player &getPlayer();
     void setOver(bool over);
     bool is_over();
 
 private:
-    Character      player;
+    Player      player;
     vector<Room *> rooms;
     vector<Enemy *> enemies;
     bool           gameOver;

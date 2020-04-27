@@ -19,7 +19,7 @@ void EnemyDeathListener::run(void *args)
         return;
     }
 
-    Enemy *enemy = (Enemy *) args;
+    auto *enemy = (Enemy *) args;
 
     game->removeEnemy(enemy->getName());                    //remove enemy from game when health == 0;
     cout << "You killed the " + enemy->getName() << endl;

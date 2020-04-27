@@ -9,44 +9,45 @@
 #include <iostream>
 
 
-Character::Character(const string &_name, int _health, int _stamina) : name(_name), health(_health), stamina(_stamina){
-}
+Character::Character(const string &_name, int _health, int _stamina) : name(_name), health(_health), stamina(_stamina){ }
 
-Character::Character(string name)
+Character::~Character() { std::cout<<"\n Character deleted \n"; }
+
+string Character::getName() { return name; }
+
+int Character::getHealth() const { return health; }
+
+int Character::getStamina() const { return stamina; }
+
+Room *Character::getCurrentRoom() { return currentRoom; }
+
+void Character::setHealth(int _health) { health = _health; }
+
+void Character::setStamina(int _stamina) { stamina = _stamina; }
+
+void Character::setCurrentRoom(Room *next) { currentRoom = next; }
+
+
+Player::Player(const string& name) : Character(name, health, stamina)
 {
-    this->name  = name; // We need to use "this->" to differentiate between the "name" argument and the "name" from the class.
+                            // We need to use "this->" to differentiate between the "name" argument and the "name" from the class.
     health      = 100;
     stamina     = 100;
     currentRoom = nullptr;
 }
 
-Character::~Character() {
+Player::~Player() { std::cout<<"\n Player defeated \n";}
 
-    std::cout<<"\n Character deleted \n";
-
-}
-
-string Character::getName()
+void Player::setStamina(int _stamina)
 {
-    return name;
+    if (_stamina <= 0) {
+        stamina = 0;
+        EventManager::getInstance().trigger("characterDeath", this);
+    }
+    stamina = _stamina;
 }
 
-int Character::getHealth() const
-{
-    return health;
-}
-
-int Character::getStamina() const
-{
-    return stamina;
-}
-
-Room *Character::getCurrentRoom()
-{
-    return currentRoom;
-}
-
-void Character::setHealth(int _health)
+void Player::setHealth(int _health)
 {
     if (_health <= 0) {
         health = 0;
@@ -55,25 +56,11 @@ void Character::setHealth(int _health)
     health = _health;
 }
 
-void Character::setStamina(int _stamina)
-{
-    if (stamina <= 0) {
-        stamina = 0;
-        EventManager::getInstance().trigger("characterDeath", this);
-    }
-    stamina = _stamina;
-}
-
-void Character::setCurrentRoom(Room *next)
-{
-    currentRoom = next;
-}
-
-void Character::addToInventory(Item* newItem) {
+void Player::addToInventory(Item* newItem) {
     Inventory.push_back(newItem);
 }
 
-void Character::removeFromInventory(string itemName) {
+void Player::removeFromInventory(string itemName) {
     for(int i = 0; i < Inventory.size(); i++) {
         if(Inventory[i]->getName() == itemName) {
             Inventory.erase(Inventory.begin()+i);
@@ -82,7 +69,7 @@ void Character::removeFromInventory(string itemName) {
     }
 }
 
-string Character::displayInventory() {
+string Player::displayInventory() {
     string tempString = "Inventory: ";
     for(auto & i : Inventory) {
         tempString += i->getName() + ", ";
@@ -90,7 +77,7 @@ string Character::displayInventory() {
     return tempString;
 }
 
-bool Character::itemInInventory(string itemName) {
+bool Player::itemInInventory(string itemName) {
     if(Inventory.empty()) {
         return false;
     }else{
@@ -103,13 +90,31 @@ bool Character::itemInInventory(string itemName) {
     return false;
 }
 
-Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina), roaming(_roaming){
-}
+Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina), roaming(_roaming){ }
 
 Enemy::~Enemy() {
+    std::cout<<"\n Enemy defeated \n";
 }
 
-bool Enemy::roamingCheck() {
+void Enemy::setStamina(int _stamina)
+{
+    if (_stamina <= 0) {
+        stamina = 0;
+        EventManager::getInstance().trigger("enemyDeath", this);
+    }
+    stamina = _stamina;
+}
+
+void Enemy::setHealth(int _health)
+{
+    if (_health <= 0) {
+        health = 0;
+        EventManager::getInstance().trigger("enemyDeath", this);
+    }
+    health = _health;
+}
+
+bool Enemy::roamingCheck() const {
     return roaming;
 }
 

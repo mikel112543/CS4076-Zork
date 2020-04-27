@@ -47,11 +47,11 @@ Game::Game() :
     EventManager::getInstance().listen("damage", new DamageListener(this));
 
     rooms.push_back(new Room("A")); // 0
-    rooms.push_back(new Room("B" )); // 1
+    rooms.push_back(new Room("B")); // 1
     rooms.push_back(new Room("C")); // 2
-    rooms.push_back(new Room("D" )); // 3
-    rooms.push_back(new Room("E" )); // 4
-    rooms.push_back(new Room("F" )); // 5
+    rooms.push_back(new Room("D")); // 3
+    rooms.push_back(new Room("E")); // 4
+    rooms.push_back(new Room("F")); // 5
     rooms.push_back(new Room("G")); // 6
     rooms.push_back(new Room("H")); // 7
     rooms.push_back(new Room("I")); // 8
@@ -63,6 +63,7 @@ Game::Game() :
 
     enemies.push_back(new Enemy( "dragon", 10, 80, false));  //0
     enemies.push_back(new Enemy( "goblin", 20, 50, true));  //1
+
     //enemies.push_back(new Character("zombie", 20, 50, true, true));
     //enemies.push_back(new Character("ogre", 20, 50, true, true));    //2
 
@@ -114,8 +115,7 @@ void Game::mapUpdate() {
                 rooms[i]->setName("!" + names[i] + "!");                                       //add !! to enemies current room
                 j++;
             } else if (enemies[j]->getCurrentRoom() == rooms[i] && player.getCurrentRoom() == rooms[i]) {
-                rooms[i]->setName("![" + names[i] +
-                                  "]!");                                      //add ![]! to room with both enemies and player
+                rooms[i]->setName("![" + names[i] + "]!");                                                               //add ![]! to room with both enemies and player
                 j++;
             }else {
                 rooms[i]->setName(names[i]);
@@ -241,7 +241,7 @@ bool Game::is_over() {
     return gameOver;
 }
 
-Character &Game::getPlayer() {
+Player &Game::getPlayer() {
     return player;
 }
 
