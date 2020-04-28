@@ -21,8 +21,6 @@ public:
 private:
     string name;
     string description;
-
-
 };
 
 

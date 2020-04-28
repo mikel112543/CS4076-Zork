@@ -6,10 +6,9 @@
 #include <debug/vector>
 
 
-using namespace std;
 
+using namespace std;
 class Item;
-class Enemy;
 
 class Room
 {
@@ -29,13 +28,11 @@ public:
     bool lockCheck();
     bool unlock();
 
-
-
 private:
     string name;
     bool isLocked;
     map<string, Room *> exits;
-    vector <Item> itemsInRoom;
+    vector <Item*> itemsInRoom;
 };
 
 #endif // ROOM_H
