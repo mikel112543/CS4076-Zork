@@ -1,16 +1,24 @@
 #include "character.h"
 
 #include "eventmanager.h"
-#include "item.h"
 #include "room.h"
 #include <algorithm>
 #include <random>
 #include <chrono>
 #include <iostream>
 
-
+/************** 2. Inheritance (including virtual methods) and cascading constructors
+ *
+ *
+ * @param _name - Character name
+ * @param _health - Character health
+ * @param _stamina - Character stamina
+ */
 Character::Character(const string &_name, int _health, int _stamina) : name(_name), health(_health), stamina(_stamina){ }
 
+/**********
+ * 1. Destructors
+ */
 Character::~Character() { std::cout<<"\n Character deleted \n"; }
 
 string Character::getName() { return name; }
@@ -21,13 +29,12 @@ int Character::getStamina() const { return stamina; }
 
 Room *Character::getCurrentRoom() { return currentRoom; }
 
-void Character::setHealth(int _health) { health = _health; }
-
-void Character::setStamina(int _stamina) { stamina = _stamina; }
-
 void Character::setCurrentRoom(Room *next) { currentRoom = next; }
 
-
+/**
+ * 9. Initializer List
+ * @param name - Player name
+ */
 Player::Player(const string& name) : Character(name, health, stamina)
 {
                             // We need to use "this->" to differentiate between the "name" argument and the "name" from the class.
@@ -56,11 +63,22 @@ void Player::setHealth(int _health)
     health = _health;
 }
 
-void Player::addToInventory(Item* newItem) {
-    Inventory.push_back(newItem);
+/**
+ * 6. Friends (Player is friend of Room to access itemsInRoom vector to avoid heap allocation)
+ * @param itemName - name of item to be added to players inventory
+ */
+void Player::addToInventory(const string& itemName) {
+    Room *room = getCurrentRoom();
+    for(auto & i : room->itemsInRoom) {
+        if(i->getName() == itemName) {
+            Inventory.push_back(i);
+            break;
+        }
+    }
+
 }
 
-void Player::removeFromInventory(string itemName) {
+void Player::removeFromInventory(const string& itemName) {
     for(int i = 0; i < Inventory.size(); i++) {
         if(Inventory[i]->getName() == itemName) {
             Inventory.erase(Inventory.begin()+i);
@@ -77,7 +95,7 @@ string Player::displayInventory() {
     return tempString;
 }
 
-bool Player::itemInInventory(string itemName) {
+bool Player::itemInInventory(const string& itemName) {
     if(Inventory.empty()) {
         return false;
     }else{
@@ -89,7 +107,13 @@ bool Player::itemInInventory(string itemName) {
     }
     return false;
 }
-
+/**
+ *
+ * @param name
+ * @param health
+ * @param stamina
+ * @param _roaming
+ */
 Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina), roaming(_roaming){ }
 
 Enemy::~Enemy() {

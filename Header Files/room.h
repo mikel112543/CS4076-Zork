@@ -9,10 +9,10 @@
 
 using namespace std;
 class Item;
-
 class Room
 {
 public:
+    friend class Player;
     Room(string name);
     Room(string name, bool isLocked);
 

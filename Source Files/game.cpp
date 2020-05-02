@@ -2,7 +2,6 @@
 
 #include<ctime>
 #include<iostream>
-#include <bits/unique_ptr.h>
 
 #include "eventmanager.h"
 #include "room.h"
@@ -220,7 +219,7 @@ void Game::take(string itemName) {
     if (!isThere) {      //check if item is in room
         cout << "item is not in room";
     } else {
-        player.addToInventory(new Item(itemName, player.getCurrentRoom()->itemDescription(itemName)));
+        player.addToInventory(itemName);
         cout << "You have taken " + itemName << endl;
         cout << player.getCurrentRoom()->itemDescription(itemName) << endl;
         player.getCurrentRoom()->removeItem(itemName);

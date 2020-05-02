@@ -16,13 +16,16 @@ class Character {
 
 public:
     Character(const string &_name, int _health, int _stamina);
+    /**********
+     * 7. Virtual functions and polymorphism
+     */
     virtual ~Character();
     string getName();
     int getHealth() const;
     int getStamina()const;
     Room *getCurrentRoom();
-    virtual void setHealth(int _health);
-    virtual void setStamina(int _stamina);
+    virtual void setHealth(int _health) = 0;
+    virtual void setStamina(int _stamina) = 0;
     void setCurrentRoom(Room* next);
 
 private:
@@ -40,15 +43,14 @@ public:
     Player(const string &name);
     ~Player() override;
     string displayInventory();
-    void addToInventory(Item* newItem);
-    void removeFromInventory(string itemName);
-    bool itemInInventory(string itemName);
+    void addToInventory(const string& itemName);
+    void removeFromInventory(const string& itemName);
+    bool itemInInventory(const string& itemName);
     void setHealth(int _health) override;
     void setStamina(int _stamina) override;
 
 private:
     vector<Item*> Inventory;
-
 };
 
 class Enemy : public Character {
