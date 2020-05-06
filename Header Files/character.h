@@ -10,7 +10,6 @@ using namespace std;
 // No need to include room since we're only working with pointers.
 // This is how we tell the compiler "there will be a room eventually".
 // This is called a "forward declaration".
-class Room;
 
 class Character {
 
@@ -24,6 +23,11 @@ public:
     int getHealth() const;
     int getStamina()const;
     Room *getCurrentRoom();
+    /***********
+     * 8. Abstract classes and pure virtual functions
+     * Character is abstract class
+     * @param _health
+     */
     virtual void setHealth(int _health) = 0;
     virtual void setStamina(int _stamina) = 0;
     void setCurrentRoom(Room* next);
@@ -46,8 +50,8 @@ public:
     void addToInventory(const string& itemName);
     void removeFromInventory(const string& itemName);
     bool itemInInventory(const string& itemName);
-    void setHealth(int _health) override;
-    void setStamina(int _stamina) override;
+    virtual void setHealth(int _health) override;
+    virtual void setStamina(int _stamina) override;
 
 private:
     vector<Item*> Inventory;
@@ -60,8 +64,8 @@ public:
     ~Enemy() override;
     bool roamingCheck() const;
     void Move(Enemy *enemy);
-    void setHealth(int _health) override;
-    void setStamina(int _stamina) override;
+    virtual void setHealth(int _health) override;
+    virtual void setStamina(int _stamina) override;
 
 private:
     bool roaming;

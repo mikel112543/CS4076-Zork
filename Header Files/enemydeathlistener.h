@@ -8,7 +8,7 @@
 
 class Game;
 
-// A listener for the bad ending
+
 class EnemyDeathListener : public EventListener
 {
 public:

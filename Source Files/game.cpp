@@ -24,7 +24,7 @@
 
 Game::Game() :
 
-        player("Hero") {
+        player("Hero"){
     srand(time(nullptr));
 
     // Commands
@@ -56,12 +56,22 @@ Game::Game() :
     rooms.push_back(new Room("I")); // 8
     rooms.push_back(new Room("J", true)); // 9
 
+    /***
+     * 10. Dynamic & Static Dispatch
+     */
     rooms[0]->addItem(new Item("potion", "A strange elixir. You feel stronger than ever!"));
     rooms[4]->addItem(new Item("skull", "Very freaky looking thing"));
     rooms[6]->addItem(new Item("key", "Oh a key. This might be useful on my adventure"));
+    Item *sword = new Weapon("sword", "An incredibly sharp sword", 20);
+    rooms[7]->addItem(sword);
 
     enemies.push_back(new Enemy( "dragon", 10, 80, false));  //0
     enemies.push_back(new Enemy( "goblin", 20, 50, true));  //1
+
+    Character *enemy = new Enemy("wizard", 50, 40, false);
+    enemy->setCurrentRoom(rooms[5]);
+    enemy->setHealth(30);
+    bosses.push_back(enemy);
 
     //enemies.push_back(new Character("zombie", 20, 50, true, true));
     //enemies.push_back(new Character("ogre", 20, 50, true, true));    //2
@@ -227,11 +237,11 @@ void Game::take(string itemName) {
     }
 }
 
-void Game::attack(string enemyName) {
-    for (int i = 0; i < enemies.size(); i++) {
-        if (player.getCurrentRoom() == enemies[i]->getCurrentRoom() && enemyName == enemies[i]->getName()) {
+void Game::attack(const string& enemyName) {
+    for (auto & enemy : enemies) {
+        if (player.getCurrentRoom() == enemy->getCurrentRoom() && enemyName == enemy->getName() && player.itemInInventory("sword")) {
             cout << "You attack the " + enemyName + " with a mighty fist!" << endl;
-            enemies[i]->setHealth(enemies[i]->getHealth() - 10);
+            enemy->setHealth(enemy->getHealth() - 10);
         }
     }
 }
@@ -244,7 +254,7 @@ Player &Game::getPlayer() {
     return player;
 }
 
-void Game::removeEnemy(string enemyName) {
+void Game::removeEnemy(const string& enemyName) {
     for(int i = 0; i < enemies.size(); i++) {
         if(enemyName == enemies[i]->getName()) {
             enemies.erase(enemies.begin()+i);
@@ -274,7 +284,6 @@ void Game::update_screen() {
         if (currentRoom->getExit("south") != nullptr) { cout << " south"; }
         if (currentRoom->getExit("west") != nullptr) { cout << " west"; }
         cout << endl;
-
         cout << "Player HP: " << player.getHealth() << " Player ST: " << player.getStamina() << endl;
         for(auto & enemy : enemies) {
             if(currentRoom == enemy->getCurrentRoom()) {

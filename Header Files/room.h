@@ -33,6 +33,7 @@ private:
     bool isLocked;
     map<string, Room *> exits;
     vector <Item*> itemsInRoom;
+
 };
 
 #endif // ROOM_H

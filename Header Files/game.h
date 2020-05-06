@@ -21,8 +21,8 @@ public:
     void go(string direction);
     void teleport();
     void take(string itemName);
-    void attack(string enemyName);
-    void removeEnemy(string enemyName);
+    void attack(const string& enemyName);
+    void removeEnemy(const string& enemyName);
 
     void update_screen();
 
@@ -31,12 +31,11 @@ public:
     bool is_over();
 
 private:
-    Player      player;
     vector<Room *> rooms;
     vector<Enemy *> enemies;
+    Player      player;
+    vector<Character*> bosses;
     bool           gameOver;
-
-
 
 };
 #endif // GAME_H

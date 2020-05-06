@@ -23,6 +23,18 @@ private:
     string description;
 };
 
+class Weapon : public Item {
+
+public:
+    Weapon(string name, string description, int damage);
+    ~Weapon();
+    int getDamage();
+    //friend int operator*();
+
+private:
+    int damage;
+};
+
 
 
 #endif //ITEM_H

@@ -8,7 +8,8 @@
 #include <iostream>
 
 /************** 2. Inheritance (including virtual methods) and cascading constructors
- *
+ * Player inherits from Character
+ * Enemy inherits from Character
  *
  * @param _name - Character name
  * @param _health - Character health
@@ -19,7 +20,7 @@ Character::Character(const string &_name, int _health, int _stamina) : name(_nam
 /**********
  * 1. Destructors
  */
-Character::~Character() { std::cout<<"\n Character deleted \n"; }
+Character::~Character() {std::cout<<"Character destroyed";}
 
 string Character::getName() { return name; }
 
@@ -43,6 +44,10 @@ Player::Player(const string& name) : Character(name, health, stamina)
     currentRoom = nullptr;
 }
 
+/*****
+ * 1. Destructors
+ * Destroys Player object when out of scope
+ */
 Player::~Player() { std::cout<<"\n Player defeated \n";}
 
 void Player::setStamina(int _stamina)
@@ -82,6 +87,7 @@ void Player::removeFromInventory(const string& itemName) {
     for(int i = 0; i < Inventory.size(); i++) {
         if(Inventory[i]->getName() == itemName) {
             Inventory.erase(Inventory.begin()+i);
+            delete Inventory[i];
             break;
         }
     }
@@ -107,12 +113,13 @@ bool Player::itemInInventory(const string& itemName) {
     }
     return false;
 }
+
 /**
- *
- * @param name
- * @param health
- * @param stamina
- * @param _roaming
+ * 9. Initializer List
+ * @param name - Enemy name
+ * @param health - Enemy health
+ * @param stamina - Enemy stamina
+ * @param _roaming - Boolean if enemy can move or not
  */
 Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina), roaming(_roaming){ }
 
@@ -142,7 +149,10 @@ bool Enemy::roamingCheck() const {
     return roaming;
 }
 
-
+/**
+ *
+ * @param enemy - Enemy to move
+ */
 void Enemy::Move(Enemy *enemy) {
     vector<string> directions {"north", "east", "south", "west"};
     Room *next;
