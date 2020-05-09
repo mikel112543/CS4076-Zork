@@ -1,5 +1,6 @@
 #include<iostream>
 #include<map>
+#include <utility>
 #include<vector>
 #include<string>
 #include<sstream>
@@ -11,8 +12,7 @@
 using namespace std;
 
 /** Converts strings from UPPERCASE or MiXedCasE to lowercase. */
-string tolower(string &s)
-{
+string tolower(string &s) {
     string ns;
     for (auto c : s) {
         ns += tolower(c);
@@ -22,8 +22,7 @@ string tolower(string &s)
 
 // EventListener.h
 /** Parent class of all listeners. (It is abstract and can't be instantiated) */
-class EventListener
-{
+class EventListener {
 public:
     // "void *" is a generic pointer to anything!
     // 10x worse than regular pointers in potential problems
@@ -39,8 +38,8 @@ struct EventManager // Structs in C++ are the same as classes, but default to "p
     static EventManager &getInstance(); // Gets an instance of the class (an object)
 
     // Making sure I can't have copies of this instance.
-    EventManager(EventManager const& copy);            // Not Implemented (Copy constructor)
-    EventManager& operator=(EventManager const& copy); // Not Implemented (Assignment operator)
+    EventManager(EventManager const &copy);            // Not Implemented (Copy constructor)
+    EventManager &operator=(EventManager const &copy); // Not Implemented (Assignment operator)
 
     // Registers an event.
     void listen(string event_name, EventListener *listener);
@@ -68,7 +67,7 @@ private:
 
     // map<K, V> is a collection of V's indexed by S.
     // In this case, we have lists/vectors of events indexed by their names.
-    map<string, vector<EventListener*>> registeredEvents;
+    map<string, vector<EventListener *>> registeredEvents;
 
     // Only EventManager can call the constructor, so the only way to get an instance
     // is by calling getInstance.
@@ -82,6 +81,7 @@ class Game; // I'm repeating this line, to pretent it is in a different file.
 struct InputListener : EventListener // Structs default to public even in inheritance.
 {
     InputListener(Game *game);
+
     void run(void *args) override;
 
 private:
@@ -94,13 +94,14 @@ private:
 class Game;
 
 // A listener for the Go command
-class GoListener : public EventListener
-{
+class GoListener : public EventListener {
 public:
     GoListener(Game *game);
+
     void run(void *args) override;
+
 private:
-    Game  *game;
+    Game *game;
     string direction;
 };
 
@@ -108,11 +109,12 @@ private:
 class Game;
 
 // A listener for the Teleport command
-class TeleportListener : public EventListener
-{
+class TeleportListener : public EventListener {
 public:
     TeleportListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -121,11 +123,12 @@ private:
 class Game;
 
 // A listener for the good ending
-class EnterRoomListener : public EventListener
-{
+class EnterRoomListener : public EventListener {
 public:
     EnterRoomListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -134,11 +137,12 @@ private:
 class Game;
 
 // A listener for the bad ending
-class CharacterDeathListener : public EventListener
-{
+class CharacterDeathListener : public EventListener {
 public:
     CharacterDeathListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -147,11 +151,12 @@ private:
 class Game;
 
 
-class EnemyDeathListener : public EventListener
-{
+class EnemyDeathListener : public EventListener {
 public:
     EnemyDeathListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -160,11 +165,12 @@ private:
 class Game;
 
 // A listener for the good ending
-class RestartListener : public EventListener
-{
+class RestartListener : public EventListener {
 public:
     RestartListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -173,11 +179,12 @@ private:
 class Game;
 
 // A listener for the good ending
-class VictoryListener : public EventListener
-{
+class VictoryListener : public EventListener {
 public:
     VictoryListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -186,11 +193,12 @@ private:
 class Game;
 
 // A listener for the bad ending
-class DefeatListener : public EventListener
-{
+class DefeatListener : public EventListener {
 public:
     DefeatListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -199,11 +207,12 @@ private:
 class Game;
 
 // A listener for the exit command
-class ExitListener : public EventListener
-{
+class ExitListener : public EventListener {
 public:
     ExitListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -212,11 +221,12 @@ private:
 class Game;
 
 // A listener for the exit command
-class MapListener : public EventListener
-{
+class MapListener : public EventListener {
 public:
     MapListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -225,11 +235,12 @@ private:
 class Game;
 
 // A listener for the exit command
-class InfoListener : public EventListener
-{
+class InfoListener : public EventListener {
 public:
     InfoListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 };
@@ -241,6 +252,21 @@ class AttackListener : public EventListener {
 
 public:
     AttackListener(Game *game);
+
+    void run(void *args) override;
+
+private:
+    Game *game;
+};
+
+// ShowListener.h
+class Game;
+
+class ShowListener : public EventListener {
+
+public:
+    ShowListener(Game *game);
+
     void run(void *args) override;
 
 private:
@@ -254,7 +280,9 @@ class TakeListener : public EventListener {
 
 public:
     TakeListener(Game *game);
+
     void run(void *args) override;
+
 private:
     Game *game;
 
@@ -266,6 +294,7 @@ class Game;
 class DamageListener : public EventListener {
 public:
     DamageListener(Game *game);
+
     void run(void *args) override;
 
 private:
@@ -276,54 +305,77 @@ private:
 class Item {
 
 public:
-    Item(string name, string description);
-    ~Item();
-    string getDescription();
+    Item(string name, string description, int value);
+
+    /********
+     * 7. Virtual functions & Polymorphism
+     */
+    virtual ~Item();
+
+    virtual string getDescription();
+
     string getName();
+
+    int getValue() const;
+
+protected:
+    string description;
 
 private:
     string name;
-    string description;
+    int value;
 };
 
 class Weapon : public Item {
 
 public:
-    Weapon(string name, string description, int damage);
-    ~Weapon();
-    int getDamage();
-    //friend int operator*();
+    Weapon(string name, string description, int value);
+
+    string getDescription() override;
+
+    ~Weapon() override;
 
 private:
-    int damage;
 };
 
 // Room.h
 class Item;
-class Room
-{
+
+class Room {
 public:
     friend class Player;
+
     Room(string name);
+
     Room(string name, bool isLocked);
 
     string getName();
+
     void setExits(Room *north, Room *east, Room *south, Room *west);
+
     Room *getExit(string direction);
+
     void addItem(Item *newItem);
+
     void removeItem(string itemName);
+
     void setName(string name);
+
     string displayItem();
-    string itemDescription(string itemName);
+
+    Item* getItem(string itemName);
+
     bool isItemInRoom(string itemName);
+
     bool lockCheck();
+
     bool unlock();
 
 private:
     string name;
     bool isLocked;
     map<string, Room *> exits;
-    vector <Item*> itemsInRoom;
+    vector<Item *> itemsInRoom;
 
 };
 
@@ -331,23 +383,37 @@ private:
 class Character {
 
 public:
-    Character(const string &_name, int _health, int _stamina);
+    Character(string _name, int _health, int _stamina);
+
     /**********
      * 7. Virtual functions and polymorphism
      */
     virtual ~Character();
-    string getName();
+
+    string getName() const;
+
     int getHealth() const;
-    int getStamina()const;
+
+    int getStamina() const;
+
     Room *getCurrentRoom();
+
     /***********
      * 8. Abstract classes and pure virtual functions
      * Character is abstract class
      * @param _health
      */
     virtual void setHealth(int _health) = 0;
+
     virtual void setStamina(int _stamina) = 0;
-    void setCurrentRoom(Room* next);
+
+    void setCurrentRoom(Room *next);
+
+    friend ostream &operator<<(ostream &os, const Character &character);
+
+    void operator-(int _health);
+
+    void operator+(int _health);
 
 private:
     string name;
@@ -362,26 +428,40 @@ class Player : public Character {
 
 public:
     Player(const string &name);
+
     ~Player() override;
+
     string displayInventory();
-    void addToInventory(const string& itemName);
-    void removeFromInventory(const string& itemName);
-    bool itemInInventory(const string& itemName);
+
+    void addToInventory(const string &itemName);
+
+    void removeFromInventory(const string &itemName);
+
+    bool itemInInventory(const string &itemName);
+
+    Item* getInventoryItem(const string &itemName);
+
     virtual void setHealth(int _health) override;
+
     virtual void setStamina(int _stamina) override;
 
 private:
-    vector<Item*> Inventory;
+    vector<Item *> Inventory;
 };
 
 class Enemy : public Character {
 
 public:
     Enemy(const string &name, int health, int stamina, bool _roaming);
+
     ~Enemy() override;
+
     bool roamingCheck() const;
+
     void Move(Enemy *enemy);
+
     virtual void setHealth(int _health) override;
+
     virtual void setStamina(int _stamina) override;
 
 private:
@@ -389,78 +469,85 @@ private:
 };
 
 // Game.h
-class Game
-{
+class Game {
 public:
     Game();
+
     void reset(bool show_update = true);
 
     void map();
+
     void mapUpdate();
+
     void info();
+
     void go(string direction);
+
     void teleport();
-    void take(string itemName);
-    void attack(const string& enemyName);
-    void removeEnemy(const string& enemyName);
+
+    void take(const string& itemName);
+
+    void attack(const string &enemyName);
+
+    void removeEnemy(const string &enemyName);
+
+    void show(const string &objects);
+
+    template<class obj>
+    string printVector(vector<obj> vec);
 
     void update_screen();
 
     Player &getPlayer();
+
     void setOver(bool over);
+
     bool is_over();
 
 private:
     vector<Room *> rooms;
     vector<Enemy *> enemies;
-    Player      player;
-    vector<Character*> bosses;
-    bool           gameOver;
+    Player player;
+    vector<Character *> bosses;
+    bool gameOver;
 
 };
 
 // EventManager.cpp
-EventManager::EventManager()
-{
+EventManager::EventManager() {
     running = true;
 }
 
-EventManager &EventManager::getInstance()
-{
+EventManager &EventManager::getInstance() {
     // static inside functions creates an instance of this variable for all the calls of this function, and initializes only once.
     static EventManager instance;
     return instance;
 }
 
-void EventManager::listen(string event_name, EventListener *listener)
-{
+void EventManager::listen(string event_name, EventListener *listener) {
     registeredEvents[tolower(event_name)].push_back(listener);
 }
 
-void EventManager::trigger(string event_name, void *args)
-{
+void EventManager::trigger(string event_name, void *args) {
     for (auto listener : registeredEvents[tolower(event_name)]) {
         listener->run(args);
     }
 }
 
-bool EventManager::is_running()
-{
+bool EventManager::is_running() {
     return running;
 }
 
-void EventManager::stop()
-{
+void EventManager::stop() {
     running = false;
 }
 
-void EventManager::check_events()
-{
+void EventManager::check_events() {
     string buffer;
     vector<string> words;
 
     cout << "> ";               // print prompt
-    getline(cin, buffer, '\n');	// read a line from cin to "buffer"
+    getline(cin, buffer, '\n');    // read a line from cin to "buffer"
     buffer = tolower(buffer);
 
     string::size_type pos = 0, last_pos = 0;
@@ -468,11 +555,11 @@ void EventManager::check_events()
     // Break "buffer" up by spaces
     bool finished = false;
     while (!finished) {
-        pos = buffer.find_first_of(' ', last_pos);	// find and remember first space.
-        if (pos == string::npos ) {			// if we found the last word,
-            words.push_back(buffer.substr(last_pos));	// add it to vector "words"
-            finished = true;				// and finish searching.
-        } else {					// otherwise add to vector and move on to next word.
+        pos = buffer.find_first_of(' ', last_pos);    // find and remember first space.
+        if (pos == string::npos) {            // if we found the last word,
+            words.push_back(buffer.substr(last_pos));    // add it to vector "words"
+            finished = true;                // and finish searching.
+        } else {                    // otherwise add to vector and move on to next word.
             words.push_back(buffer.substr(last_pos, pos - last_pos));
             last_pos = pos + 1;
         }
@@ -481,8 +568,7 @@ void EventManager::check_events()
     trigger("input", &words);
 }
 
-void EventManager::event_loop()
-{
+void EventManager::event_loop() {
     EventManager &eventManager = EventManager::getInstance();
 
     while (eventManager.is_running()) {
@@ -491,13 +577,11 @@ void EventManager::event_loop()
 }
 
 // InputListener.cpp
-InputListener::InputListener(Game *game)
-{
+InputListener::InputListener(Game *game) {
     this->game = game;
 }
 
-void InputListener::run(void *args_ptr)
-{
+void InputListener::run(void *args_ptr) {
     // Let's make this thing a bit safer by "translating" the pointer back to what we expect
     // This is exactly what makes this "void *" pointer dangerous.
     vector<string> *args = (vector<string> *) args_ptr;
@@ -522,13 +606,11 @@ void InputListener::run(void *args_ptr)
 }
 
 // TeleportListener.cpp
-TeleportListener::TeleportListener(Game *game)
-{
+TeleportListener::TeleportListener(Game *game) {
     this->game = game;
 }
 
-void TeleportListener::run(void *)
-{
+void TeleportListener::run(void *) {
     if (game->is_over()) {
         return;
     }
@@ -537,24 +619,20 @@ void TeleportListener::run(void *)
 }
 
 // RestartListener.cpp
-RestartListener::RestartListener(Game *game)
-{
+RestartListener::RestartListener(Game *game) {
     this->game = game;
 }
 
-void RestartListener::run(void *)
-{
+void RestartListener::run(void *) {
     game->reset(false);
 }
 
 // EnterRoomListener.cpp
-EnterRoomListener::EnterRoomListener(Game *game)
-{
+EnterRoomListener::EnterRoomListener(Game *game) {
     this->game = game;
 }
 
-void EnterRoomListener::run(void *args)
-{
+void EnterRoomListener::run(void *args) {
     if (game->is_over()) {
         return;
     }
@@ -567,13 +645,11 @@ void EnterRoomListener::run(void *args)
 }
 
 // CharacterDeathListener.cpp
-CharacterDeathListener::CharacterDeathListener(Game *game)
-{
+CharacterDeathListener::CharacterDeathListener(Game *game) {
     this->game = game;
 }
 
-void CharacterDeathListener::run(void *args)
-{
+void CharacterDeathListener::run(void *args) {
     if (game->is_over()) {
         return;
     }
@@ -586,13 +662,11 @@ void CharacterDeathListener::run(void *args)
 }
 
 // EnemyDeathListener.cpp
-EnemyDeathListener::EnemyDeathListener(Game *game)
-{
+EnemyDeathListener::EnemyDeathListener(Game *game) {
     this->game = game;
 }
 
-void EnemyDeathListener::run(void *args)
-{
+void EnemyDeathListener::run(void *args) {
     if (game->is_over()) {
         return;
     }
@@ -605,14 +679,12 @@ void EnemyDeathListener::run(void *args)
 }
 
 // GoListener.cpp
-GoListener::GoListener(Game *game)
-{
+GoListener::GoListener(Game *game) {
     this->game = game;
-    direction  = "";
+    direction = "";
 }
 
-void GoListener::run(void *args_ptr)
-{
+void GoListener::run(void *args_ptr) {
     if (game->is_over()) {
         return;
     }
@@ -627,103 +699,89 @@ void GoListener::run(void *args_ptr)
 }
 
 // VictoryListener.cpp
-VictoryListener::VictoryListener(Game *game)
-{
+VictoryListener::VictoryListener(Game *game) {
     this->game = game;
 }
 
-void VictoryListener::run(void *)
-{
+void VictoryListener::run(void *) {
     cout << endl;
     cout << "Victory!" << endl;
     game->setOver(true);
 }
 
 // DefeatListener.cpp
-DefeatListener::DefeatListener(Game *game)
-{
+DefeatListener::DefeatListener(Game *game) {
     this->game = game;
 }
 
-void DefeatListener::run(void *)
-{
+void DefeatListener::run(void *) {
     cout << endl;
     cout << "Defeat!" << endl;
     game->setOver(true);
 }
 
 // MapListener.cpp
-MapListener::MapListener(Game *game)
-{
+MapListener::MapListener(Game *game) {
     this->game = game;
 }
 
-void MapListener::run(void *)
-{
+void MapListener::run(void *) {
     game->map();
 }
 
 // InfoListener.cpp
-InfoListener::InfoListener(Game *game)
-{
+InfoListener::InfoListener(Game *game) {
     this->game = game;
 }
 
-void InfoListener::run(void *)
-{
+void InfoListener::run(void *) {
     game->info();
 }
 
 // ExitListener.cpp
-ExitListener::ExitListener(Game *game)
-{
+ExitListener::ExitListener(Game *game) {
     this->game = game;
 }
 
-void ExitListener::run(void *)
-{
+void ExitListener::run(void *) {
     EventManager::getInstance().stop();
 }
 
 // DamageListener.cpp
-DamageListener::DamageListener(Game *game)
-{
+DamageListener::DamageListener(Game *game) {
     this->game = game;
 }
 
-void DamageListener::run(void * args)
-{
-    if(game->is_over()) {
+void DamageListener::run(void *args) {
+    if (game->is_over()) {
         return;
     }
     Item *item = (Item *) args;
 
-    if(item->getName() == "skull") {
-        game->getPlayer().setHealth(game->getPlayer().getHealth() - 75);    //triggered if skull is picked up
+    if (item->getName() == "skull") {
+        game->getPlayer() - 75;                           //triggered if skull is picked up
         game->getPlayer().removeFromInventory("skull");
         cout << "Ouch! You feel the skull damage your soul." << endl;
-    }else if(item->getName() == "potion") {
-        game->getPlayer().setHealth(game->getPlayer().getHealth() + 20);    //triggered if skull is picked up
+    } else if (item->getName() == "potion") {
+        game->getPlayer() + 20;                           //triggered if potion is picked up
         game->getPlayer().removeFromInventory("potion");
     }
 }
 
 // TakeListener.cpp
-TakeListener::TakeListener(Game *game)
-{
+TakeListener::TakeListener(Game *game) {
     this->game = game;
 }
 
 void TakeListener::run(void *args_ptr) {
-    if(game->is_over()) {
+    if (game->is_over()) {
         return;
     }
     auto *args = (vector<string> *) args_ptr;
-    Item *item = (Item *) args;
 
-    if(args->size() > 1) {
+    if (args->size() > 1) {
         game->take(args->at(1));
-    }else {
+    } else {
         cout << "That is not an item" << endl;
     }
 }
@@ -734,20 +792,37 @@ AttackListener::AttackListener(Game *game) {
 }
 
 void AttackListener::run(void *args_ptr) {
-    if(game->is_over()) {
+    if (game->is_over()) {
         return;
     }
     auto *args = (vector<string> *) args_ptr;
 
-    if(args->size() > 1) {
+    if (args->size() > 1) {
         game->attack(args->at(1));
-    }else {
+    } else {
         cout << "That is not an enemy" << endl;
     }
 }
 
+// ShowListener.cpp
+ShowListener::ShowListener(Game *game) {
+    this->game = game;
+}
+
+void ShowListener::run(void *args_ptr) {
+    if (game->is_over()) {
+        return;
+    }
+    auto *args = (vector<string> *) args_ptr;
+
+    if (args->size() > 1) {
+        game->show(args->at(1));
+    }
+}
+
 // Character.cpp
-/************** 2. Inheritance (including virtual methods) and cascading constructors
+/**************
+ * 2. Inheritance (including virtual methods) and cascading constructors
  * Player inherits from Character
  * Enemy inherits from Character
  *
@@ -755,14 +830,22 @@ void AttackListener::run(void *args_ptr) {
  * @param _health - Character health
  * @param _stamina - Character stamina
  */
-Character::Character(const string &_name, int _health, int _stamina) : name(_name), health(_health), stamina(_stamina){ }
+
+/*************
+ * 9. Initializer List
+ * @param _name - Character name
+ * @param _health - Character health
+ * @param _stamina - Character stamina
+ */
+Character::Character(string _name, int _health, int _stamina) : name(std::move(_name)), health(_health),
+                                                                       stamina(_stamina) {}
 
 /**********
  * 1. Destructors
  */
-Character::~Character() {std::cout<<"Character destroyed";}
+Character::~Character() { std::cout << "Character destroyed"; }
 
-string Character::getName() { return name; }
+string Character::getName() const { return name; }
 
 int Character::getHealth() const { return health; }
 
@@ -772,26 +855,50 @@ Room *Character::getCurrentRoom() { return currentRoom; }
 
 void Character::setCurrentRoom(Room *next) { currentRoom = next; }
 
-/**
+/**********
+ * 5. Binary operator overloading
+ * @return - ostream of Character stats
+ */
+ostream &operator<<(ostream &os, const Character &character) {
+    Enemy *ptr;
+    os << character.name << " HP: " << character.health << " " << character.name << " SP: " << character.stamina << "\n";
+    return os;
+}
+
+/********
+ * 4. Unary operator overloading
+ * @param _health - Character health to be increased by this amount
+ */
+void Character::operator-(int _health) {
+    setHealth(health - _health);
+}
+
+/*********
+ * 4. Unary operator overlaoding
+ * @param _health - Character health to be increased by this amount
+ */
+void Character::operator+(int _health) {
+    setHealth(health + _health);
+}
+
+/**********
  * 9. Initializer List
  * @param name - Player name
  */
-Player::Player(const string& name) : Character(name, health, stamina)
-{
+Player::Player(const string &name) : Character(name, health, stamina) {
     // We need to use "this->" to differentiate between the "name" argument and the "name" from the class.
-    health      = 100;
-    stamina     = 100;
+    health = 100;
+    stamina = 100;
     currentRoom = nullptr;
 }
 
-/*****
+/*********
  * 1. Destructors
  * Destroys Player object when out of scope
  */
-Player::~Player() { std::cout<<"\n Player defeated \n";}
+Player::~Player() { std::cout << "\n Player defeated \n"; }
 
-void Player::setStamina(int _stamina)
-{
+void Player::setStamina(int _stamina) {
     if (_stamina <= 0) {
         stamina = 0;
         EventManager::getInstance().trigger("characterDeath", this);
@@ -799,8 +906,7 @@ void Player::setStamina(int _stamina)
     stamina = _stamina;
 }
 
-void Player::setHealth(int _health)
-{
+void Player::setHealth(int _health) {
     if (_health <= 0) {
         health = 0;
         EventManager::getInstance().trigger("characterDeath", this);
@@ -808,14 +914,14 @@ void Player::setHealth(int _health)
     health = _health;
 }
 
-/**
- * 6. Friends (Player is friend of Room to access itemsInRoom vector to avoid heap allocation)
+/**********
+ * 6. Friends (Player is friend of Room to access itemsInRoom vector)
  * @param itemName - name of item to be added to players inventory
  */
-void Player::addToInventory(const string& itemName) {
+void Player::addToInventory(const string &itemName) {
     Room *room = getCurrentRoom();
-    for(auto & i : room->itemsInRoom) {
-        if(i->getName() == itemName) {
+    for (auto &i : room->itemsInRoom) {
+        if (i->getName() == itemName) {
             Inventory.push_back(i);
             break;
         }
@@ -823,30 +929,39 @@ void Player::addToInventory(const string& itemName) {
 
 }
 
-void Player::removeFromInventory(const string& itemName) {
-    for(int i = 0; i < Inventory.size(); i++) {
-        if(Inventory[i]->getName() == itemName) {
-            Inventory.erase(Inventory.begin()+i);
+void Player::removeFromInventory(const string &itemName) {
+    for (int i = 0; i < Inventory.size(); i++) {
+        if (Inventory[i]->getName() == itemName) {
+            Inventory.erase(Inventory.begin() + i);
             delete Inventory[i];
             break;
         }
     }
 }
 
+Item* Player::getInventoryItem(const string &itemName) {
+    for(auto & i : Inventory) {
+        if(i->getName() == itemName) {
+            return i;
+        }
+    }
+    return nullptr;
+}
+
 string Player::displayInventory() {
     string tempString = "Inventory: ";
-    for(auto & i : Inventory) {
+    for (auto &i : Inventory) {
         tempString += i->getName() + ", ";
     }
     return tempString;
 }
 
-bool Player::itemInInventory(const string& itemName) {
-    if(Inventory.empty()) {
+bool Player::itemInInventory(const string &itemName) {
+    if (Inventory.empty()) {
         return false;
-    }else{
-        for(auto & i : Inventory) {
-            if(itemName == i->getName()) {
+    } else {
+        for (auto &i : Inventory) {
+            if (itemName == i->getName()) {
                 return true;
             }
         }
@@ -854,21 +969,23 @@ bool Player::itemInInventory(const string& itemName) {
     return false;
 }
 
-/**
+/***********
  * 9. Initializer List
  * @param name - Enemy name
  * @param health - Enemy health
  * @param stamina - Enemy stamina
  * @param _roaming - Boolean if enemy can move or not
  */
-Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina), roaming(_roaming){ }
-
+Enemy::Enemy(const string &name, int health, int stamina, bool _roaming) : Character(name, health, stamina),
+                                                                           roaming(_roaming) {}
+/***********
+ * 1. Destructors
+ */
 Enemy::~Enemy() {
-    std::cout<<"\n Enemy defeated \n";
+    std::cout << "\n Enemy defeated \n";
 }
 
-void Enemy::setStamina(int _stamina)
-{
+void Enemy::setStamina(int _stamina) {
     if (_stamina <= 0) {
         stamina = 0;
         EventManager::getInstance().trigger("enemyDeath", this);
@@ -876,8 +993,7 @@ void Enemy::setStamina(int _stamina)
     stamina = _stamina;
 }
 
-void Enemy::setHealth(int _health)
-{
+void Enemy::setHealth(int _health) {
     if (_health <= 0) {
         health = 0;
         EventManager::getInstance().trigger("enemyDeath", this);
@@ -889,20 +1005,16 @@ bool Enemy::roamingCheck() const {
     return roaming;
 }
 
-/**
- *
- * @param enemy - Enemy to move
- */
 void Enemy::Move(Enemy *enemy) {
-    vector<string> directions {"north", "east", "south", "west"};
+    vector<string> directions{"north", "east", "south", "west"};
     Room *next;
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();       //create time based seed for shuffle
 
     std::shuffle(directions.begin(), directions.end(), std::default_random_engine(seed));   //shuffle directions
-    for(auto & direction : directions) {
+    for (auto &direction : directions) {
         next = enemy->getCurrentRoom()->getExit(direction);
-        if(next != nullptr) {                                   //check exit isn't dead end
-            if(!next->lockCheck()) {                            //check exit isn't locked
+        if (next != nullptr) {                                   //check exit isn't dead end
+            if (!next->lockCheck()) {                            //check exit isn't locked
                 enemy->setCurrentRoom(next);                    //move if satisfies
                 break;
             }
@@ -912,27 +1024,23 @@ void Enemy::Move(Enemy *enemy) {
 
 // Room.cpp
 Room::Room(string name) :
-        name(name)
-{
+        name(name) {
     exits["north"] = nullptr;
-    exits["east"]  = nullptr;
+    exits["east"] = nullptr;
     exits["south"] = nullptr;
-    exits["west"]  = nullptr;
+    exits["west"] = nullptr;
 }
 
 Room::Room(string name, bool isLocked) :
-        name(name)
-
-{
+        name(name) {
     exits["north"] = nullptr;
-    exits["east"]  = nullptr;
+    exits["east"] = nullptr;
     exits["south"] = nullptr;
-    exits["west"]  = nullptr;
+    exits["west"] = nullptr;
     this->isLocked = isLocked;
 }
 
-string Room::getName()
-{
+string Room::getName() {
     return name;
 }
 
@@ -940,57 +1048,55 @@ void Room::setName(string name) {
     this->name = name;
 }
 
-bool Room:: lockCheck() {
+bool Room::lockCheck() {
     return isLocked;
 }
 
-bool Room:: unlock() {
+bool Room::unlock() {
     return isLocked = false;
 }
 
 
-void Room::setExits(Room *north, Room *east, Room *south, Room *west)
-{
+void Room::setExits(Room *north, Room *east, Room *south, Room *west) {
     exits["north"] = north;
-    exits["east"]  = east;
+    exits["east"] = east;
     exits["south"] = south;
-    exits["west"]  = west;
+    exits["west"] = west;
 }
-void Room::addItem(Item* newItem)
-{
+
+void Room::addItem(Item *newItem) {
     itemsInRoom.push_back(newItem);
 }
 
 void Room::removeItem(string itemName) {
-    for(int i = 0; i < itemsInRoom.size(); i++) {
-        if(itemsInRoom[i]->getName() == itemName) {
+    for (int i = 0; i < itemsInRoom.size(); i++) {
+        if (itemsInRoom[i]->getName() == itemName) {
             itemsInRoom.erase(itemsInRoom.begin() + i);         //erase item at point i
             break;
         }
     }
 }
 
-Room *Room::getExit(string direction)
-{
+Room *Room::getExit(string direction) {
     return exits[direction];
 }
 
-string Room::itemDescription(string itemName) {
+Item* Room::getItem(string itemName) {
     string description;
-    for(int i = 0; i < itemsInRoom.size(); i++) {
-        if(itemsInRoom[i]->getName() == itemName) {
-            description = itemsInRoom[i]->getDescription();
+    for (auto & i : itemsInRoom) {
+        if (i->getName() == itemName) {
+            return i;
         }
     }
-    return description;
+    return nullptr;
 }
 
 bool Room::isItemInRoom(string itemName) {
     if (itemsInRoom.empty()) {
         return false;
     } else {
-        for( auto & i : itemsInRoom) {
-            if(itemName == i->getName()) {   //loop to check if item is in vector
+        for (auto &i : itemsInRoom) {
+            if (itemName == i->getName()) {   //loop to check if item is in vector
                 return true;
             }
         }
@@ -1001,10 +1107,10 @@ bool Room::isItemInRoom(string itemName) {
 
 string Room::displayItem() {
     string tempString = "Items in room: ";
-    if(itemsInRoom.empty()) {
+    if (itemsInRoom.empty()) {
         tempString = "There are no items in this room";
-    }else{
-        for(auto & i : itemsInRoom)  {
+    } else {
+        for (auto &i : itemsInRoom) {
             tempString += i->getName() + ", ";
         }
     }
@@ -1012,45 +1118,55 @@ string Room::displayItem() {
 }
 
 // Item.cpp
-Item::Item(string name, string description) {
-    this->name = std::move(name);
-    this->description = std::move(description);
-}
+
+/*************
+ * Initializer List
+ * @param name - Name of item
+ * @param description - Short description of item
+ */
+Item::Item(string name, string description, int value) : name(std::move(name)), description(std::move(description)), value(value) {}
+
 /***********
  * 1. Destructors
  * Destroy item when out of scope
  */
 Item::~Item() {
 
-    std::cout<<"\n Item deleted \n";
+    std::cout << "\n Item deleted \n";
 }
+
+string Item::getName() { return name;}
+
 
 string Item::getDescription() {
     return description;
 }
 
-string Item::getName()  {
-    return name;
-}
+int Item::getValue() const { return value; }
 
-Weapon::Weapon(string name, string description, int damage) : Item(std::move(name), std::move(description)), damage(damage) {}
+Weapon::Weapon(string name, string description, int value) : Item(std::move(name), std::move(description), (value)) {}
 
 Weapon::~Weapon() {
-    std::cout<<"\n Weapon deleted \n";
+    std::cout << "\n Weapon deleted \n";
 }
 
-int Weapon::getDamage() {
-    return damage;
+/*******
+ * 7. Virtual Functions & Polymorphism
+ * @return
+ */
+string Weapon::getDescription() {
+    if (getValue() >= 30 && getValue() < 100) {
+        description += " This weapon is rare";
+    } else if (getValue() >= 100) {
+        description += " Whoa! This weapon is very rare";
+    }
+    return description;
 }
-
-//int Weapon::operator*() {
-  //  damage = damage * 2;
-//}
 
 // Game.cpp
 Game::Game() :
 
-        player("Hero"){
+        player("Hero") {
     srand(time(nullptr));
 
     // Commands
@@ -1062,6 +1178,7 @@ Game::Game() :
     EventManager::getInstance().listen("exit", new ExitListener(this));
     EventManager::getInstance().listen("take", new TakeListener(this));
     EventManager::getInstance().listen("attack", new AttackListener(this));
+    EventManager::getInstance().listen("show", new ShowListener(this));
 
     // State changes
     EventManager::getInstance().listen("characterDeath", new CharacterDeathListener(this));
@@ -1085,22 +1202,16 @@ Game::Game() :
     /***
      * 10. Dynamic & Static Dispatch
      */
-    rooms[0]->addItem(new Item("potion", "A strange elixir. You feel stronger than ever!"));
-    rooms[4]->addItem(new Item("skull", "Very freaky looking thing"));
-    rooms[6]->addItem(new Item("key", "Oh a key. This might be useful on my adventure"));
-    Item *sword = new Weapon("sword", "An incredibly sharp sword", 20);
-    rooms[7]->addItem(sword);
+    Item *dagger = new Weapon("dagger", "It's not very sharp, but it'll do the trick.", 30);
+    Item *longsword = new Weapon("longsword", "A sharp dangerous sword. Now we're talking!", 100);
+    rooms[0]->addItem(new Item("potion", "A strange elixir. You feel stronger than ever!", 10));
+    rooms[4]->addItem(new Item("skull", "Very freaky looking thing", 20));
+    rooms[6]->addItem(new Item("key", "Oh a key. This might be useful on my adventure", 10));
+    rooms[5]->addItem(dagger);
+    rooms[3]->addItem(longsword);
 
-    enemies.push_back(new Enemy( "dragon", 10, 80, false));  //0
-    enemies.push_back(new Enemy( "goblin", 20, 50, true));  //1
-
-    Character *enemy = new Enemy("wizard", 50, 40, false);
-    enemy->setCurrentRoom(rooms[5]);
-    enemy->setHealth(30);
-    bosses.push_back(enemy);
-
-    //enemies.push_back(new Character("zombie", 20, 50, true, true));
-    //enemies.push_back(new Character("ogre", 20, 50, true, true));    //2
+    enemies.push_back(new Enemy("dragon", 250, 80, false));  //0
+    enemies.push_back(new Enemy("goblin", 150, 50, true));  //1
 
     //                 N                E               S               W
     rooms[0]->setExits(rooms[4], rooms[2], rooms[7], rooms[1]);
@@ -1116,6 +1227,22 @@ Game::Game() :
 
 
     reset();
+}
+
+/**
+ * 3. Templates - Print out user specified object names
+ * @tparam obj - Object type to be passed
+ * @param vec - Vector of type "object" name
+ * @return
+ */
+template<class obj>
+string Game::printVector(vector<obj> vec) {
+    for (int i = 0; i < vec.size(); i++) {
+        obj object = vec[i];
+        cout << object->getName() << endl;
+    }
+    string temp = "No objects";
+    return temp;
 }
 
 void Game::reset(bool show_update) {
@@ -1145,18 +1272,18 @@ void Game::mapUpdate() {
     for (int i = 0; i < rooms.size(); i++) {
         for (int j = 0; j < enemies.size(); j++) {
             if (player.getCurrentRoom() == rooms[i] && enemies[j]->getCurrentRoom() != rooms[i]) {
-                rooms[i]->setName("[" + names[i] + "]" );                                      //add [] to players current room
+                rooms[i]->setName("[" + names[i] + "]");               //add [] to players current room
             } else if (enemies[j]->getCurrentRoom() == rooms[i] && player.getCurrentRoom() != rooms[i]) {
-                rooms[i]->setName("!" + names[i] + "!");                                       //add !! to enemies current room
+                rooms[i]->setName("!" + names[i] + "!");    //add !! to enemies current room
                 j++;
             } else if (enemies[j]->getCurrentRoom() == rooms[i] && player.getCurrentRoom() == rooms[i]) {
-                rooms[i]->setName("![" + names[i] + "]!");                                                               //add ![]! to room with both enemies and player
+                rooms[i]->setName("![" + names[i] + "]!");   //add ![]! to room with both enemies and player
                 j++;
-            }else {
+            } else {
                 rooms[i]->setName(names[i]);
             }
         }
-        if(enemies.empty() && player.getCurrentRoom() == rooms[i]) {
+        if (enemies.empty() && player.getCurrentRoom() == rooms[i]) {
             rooms[i]->setName("[" + names[i] + "]");
         }
     }
@@ -1209,6 +1336,7 @@ void Game::info() {
     cout << " - take <item>" << endl;
     cout << " - attack <enemy>" << endl;
     cout << " - map" << endl;
+    cout << " - show" << endl;
     cout << " - info" << endl;
 }
 
@@ -1250,24 +1378,32 @@ void Game::teleport() {
     EventManager::getInstance().trigger("enterRoom", rooms[selected]);
 }
 
-void Game::take(string itemName) {
+void Game::take(const string& itemName) {
     bool isThere = player.getCurrentRoom()->isItemInRoom(itemName);
     if (!isThere) {      //check if item is in room
         cout << "item is not in room";
     } else {
         player.addToInventory(itemName);
         cout << "You have taken " + itemName << endl;
-        cout << player.getCurrentRoom()->itemDescription(itemName) << endl;
+        cout << player.getCurrentRoom()->getItem(itemName)->getDescription() << endl;
         player.getCurrentRoom()->removeItem(itemName);
-        EventManager::getInstance().trigger("damage", &itemName);  //triggers damage event
+        EventManager::getInstance().trigger("damage", player.getInventoryItem(itemName));  //triggers damage event
     }
 }
 
-void Game::attack(const string& enemyName) {
-    for (auto & enemy : enemies) {
-        if (player.getCurrentRoom() == enemy->getCurrentRoom() && enemyName == enemy->getName() && player.itemInInventory("sword")) {
+void Game::attack(const string &enemyName) {
+    for (auto &enemy : enemies) {
+        if (player.getCurrentRoom() == enemy->getCurrentRoom() && enemyName == enemy->getName() &&
+            player.itemInInventory("longsword")) {
+            cout << "You slash the " + enemyName + " with your mighty longsword!" << endl;
+            enemy->operator-(player.getInventoryItem("longsword")->getValue());
+        }else if(player.getCurrentRoom() == enemy->getCurrentRoom() && enemyName == enemy->getName() &&
+                 player.itemInInventory("dagger")) {
+            cout << "You pathetically poke the " + enemyName + " with your dagger!" << endl;
+            enemy->operator-(player.getInventoryItem("dagger")->getValue());
+        }else if(player.getCurrentRoom() == enemy->getCurrentRoom() && enemyName == enemy->getName()) {
             cout << "You attack the " + enemyName + " with a mighty fist!" << endl;
-            enemy->setHealth(enemy->getHealth() - 10);
+            enemy->operator-(10);
         }
     }
 }
@@ -1280,11 +1416,21 @@ Player &Game::getPlayer() {
     return player;
 }
 
-void Game::removeEnemy(const string& enemyName) {
-    for(int i = 0; i < enemies.size(); i++) {
-        if(enemyName == enemies[i]->getName()) {
-            enemies.erase(enemies.begin()+i);
+void Game::removeEnemy(const string &enemyName) {
+    for (int i = 0; i < enemies.size(); i++) {
+        if (enemyName == enemies[i]->getName()) {
+            enemies.erase(enemies.begin() + i);
         }
+    }
+}
+
+void Game::show(const string &objects) {
+    if (objects == "enemies") {
+        printVector(enemies);
+    } else if (objects == "rooms") {
+        printVector(rooms);
+    } else {
+        cout << "Incorrect entry!" << endl;
     }
 }
 
@@ -1310,11 +1456,11 @@ void Game::update_screen() {
         if (currentRoom->getExit("south") != nullptr) { cout << " south"; }
         if (currentRoom->getExit("west") != nullptr) { cout << " west"; }
         cout << endl;
-        cout << "Player HP: " << player.getHealth() << " Player ST: " << player.getStamina() << endl;
-        for(auto & enemy : enemies) {
-            if(currentRoom == enemy->getCurrentRoom()) {
-                cout << enemy->getName() << " HP: " << enemy->getHealth() << " " << enemy->getName()
-                     << " ST: " << enemy->getStamina() << endl;
+        cout << player;
+        for (auto &enemy : enemies) {
+            if (currentRoom == enemy->getCurrentRoom()) {
+                cout << enemy->getName() << " HP: " << enemy->getHealth() << " "
+                     << enemy->getName() << " SP: " << enemy->getStamina() << endl;
             }
         }
     } else {
@@ -1322,9 +1468,9 @@ void Game::update_screen() {
     }
 }
 
+
 // main.cpp
-int main()
-{
+int main() {
     Game game;
     EventManager::getInstance().listen("input", new InputListener(&game));
     EventManager::getInstance().event_loop();
